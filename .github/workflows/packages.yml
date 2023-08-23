@@ -14,19 +14,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: WebApp
-      uses: thedoctor0/zip-release@0.7.1
-      with:
-        type: 'zip'
-        filename: 'webapp.zip'
-        directory: 'src/webapp'
-    
-    - name: Solutions
-      uses: thedoctor0/zip-release@0.7.1
-      with:
-        type: 'zip'
-        filename: 'solutions.zip'
-        directory: 'src/solutions'
+    - name: zip solutions
+      run:  cd src/solutions && zip -r ../../solutions.zip .
+
+    - name: zip webapp
+      run:  cd src/webapp && zip -r ../../webapp.zip .
 
     - name: Update release
       uses: ncipollo/release-action@v1.12.0
