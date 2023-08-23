@@ -1,0 +1,22 @@
+{
+  "scriptFile": "func.py",
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "transcriptions",
+      "direction": "in",
+      "leaseCollectionName": "leases",
+      "connectionStringSetting": "COSMOS_DB_CONNECTION_STRING_SETTING",
+      "databaseName": "%COSMOS_DB_DATABASE_NAME%",
+      "collectionName": "%COSMOS_DB_CONTAINER_ID%",
+      "createLeaseCollectionIfNotExists": true
+    },
+    {
+      "type": "webPubSub",
+      "name": "actions",
+      "hub": "%WEB_PUBSUB_HUB_ID%",
+      "connection": "WEB_PUBSUB_CONNECTION_STRING",
+      "direction": "out"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "scriptFile": "func.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "name": "transcriptions",
+      "type": "cosmosDB",
+      "direction": "in",
+      "databaseName": "%COSMOS_DB_DATABASE_NAME%",
+      "collectionName": "%COSMOS_DB_CONTAINER_ID%",
+      "sqlQuery": "SELECT * FROM c ORDER BY c._ts DESC OFFSET 0 LIMIT 50",
+      "connectionStringSetting": "COSMOS_DB_CONNECTION_STRING_SETTING"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "dataType": "binary",
+      "name": "req",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "httpResponse"
+    },
+    {
+      "name": "blobOutput",
+      "type": "blob",
+      "path": "%STORAGE_ACCOUNT_CONTAINER%/{rand-guid}.wav",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    }
+  ]
+}

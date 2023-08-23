@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "STORAGE_ACCOUNT_CONTAINER": "",
+    "STORAGE_ACCOUNT_CONNECTION_STRING": "",
+    "WEB_PUBSUB_HUB_ID": "",
+    "WEB_PUBSUB_CONNECTION_STRING": "",
+    "COSMOS_DB_DATABASE_NAME": "",
+    "COSMOS_DB_CONTAINER_ID": "",
+    "COSMOS_DB_CONNECTION_STRING_SETTING": ""
+  }
+}
