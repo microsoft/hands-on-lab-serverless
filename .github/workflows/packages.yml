@@ -21,19 +21,19 @@ jobs:
         filename: 'webapp.zip'
         directory: 'src/webapp'
     
-    - name: WebApp
-      uses: thedoctor0/zip-release@0.7.1
-      with:
-        type: 'tar'
-        filename: 'webapp.tar'
-        directory: 'src/webapp'
-      
     - name: Solutions
       uses: thedoctor0/zip-release@0.7.1
       with:
         type: 'zip'
         filename: 'solutions.zip'
         directory: 'src/solutions'
+
+    - name: WebApp
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        type: 'tar'
+        filename: 'webapp.tar'
+        directory: 'src/webapp'
 
     - name: Solutions
       uses: thedoctor0/zip-release@0.7.1
