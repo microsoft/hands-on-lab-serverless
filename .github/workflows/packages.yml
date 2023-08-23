@@ -28,20 +28,6 @@ jobs:
         filename: 'solutions.zip'
         directory: 'src/solutions'
 
-    - name: WebApp
-      uses: thedoctor0/zip-release@0.7.1
-      with:
-        type: 'tar'
-        filename: 'webapp.tar'
-        directory: 'src/webapp'
-
-    - name: Solutions
-      uses: thedoctor0/zip-release@0.7.1
-      with:
-        type: 'tar'
-        filename: 'solutions.tar'
-        directory: 'src/solutions'
-
     - name: Update release
       uses: ncipollo/release-action@v1.12.0
       with:
@@ -49,4 +35,3 @@ jobs:
         tag: latest
         artifacts: "*.zip"
         allowUpdates: true
-        removeArtifacts: true
