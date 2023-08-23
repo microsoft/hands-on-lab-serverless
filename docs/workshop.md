@@ -76,7 +76,6 @@ az provider register --namespace 'Microsoft.Logic'
 az provider register --namespace 'Microsoft.SignalRService'
 # Azure Functions
 az provider register --namespace 'Microsoft.Web'
-
 ```
 
 </details>
@@ -212,7 +211,7 @@ You have created a Static Web App to help assess progress on this Hands-on-Lab a
 
 Deploying the Web App is optional but it is highly recommended as it will simplify the testing process so that you can focus on the fun stuff.
 
-You can deploy the [demo Web App](https://github.com/ikhemissi/serverless-workshop-demo) using either Github Actions (recommended) or [Azure Static Web Apps CLI](https://aka.ms/swa/cli-local-development).
+You can deploy the [demo Web App](https://github.com/microsoft/hands-on-lab-serverless/tree/main/src/webapp) using either Github Actions (recommended) or [Azure Static Web Apps CLI](https://aka.ms/swa/cli-local-development).
 
 Remember to define a naming convention, for a static web app it will be this format: `stapp-<environment>-<region>-<application-name>-<owner>-<instance>`
 
@@ -220,7 +219,7 @@ Remember to define a naming convention, for a static web app it will be this for
 
 You can rely on Github Actions to build and deploy the code of the Web app into a Static Web App in Azure.
 
-To do this, you need to [fork the project](https://github.com/ikhemissi/serverless-workshop-demo/fork) on Github and then run the following command:
+To do this, you need to [fork the project](https://github.com/microsoft/hands-on-lab-serverless/fork) on Github and then run the following command:
 
 ```sh
 # Replace the following settings with your own:
@@ -232,11 +231,11 @@ To do this, you need to [fork the project](https://github.com/ikhemissi/serverle
 az staticwebapp create \
     --name <unique-web-app-name> \
     --resource-group <resource-group> \
-    --source https://github.com/<github-username>/serverless-workshop-demo \
+    --source https://github.com/<github-username>/hands-on-lab-serverless \
     --location "westeurope" \
     --branch main \
-    --app-location "./"  \
-    --api-location "./api"  \
+    --app-location "./src/webapp"  \
+    --api-location "./src/webapp/api"  \
     --output-location "build" \
     --login-with-github
 ```
@@ -247,7 +246,7 @@ This command will create the Static Web App in Azure and will then prompt you fo
 
 You can also opt for building and deploying the web app from your machine without having to fork the project and give permissions to [AzureAppServiceCLI](https://learn.microsoft.com/en-us/azure/static-web-apps/get-started-cli?tabs=react) to access the code.
 
-First let's [download](https://github.com/ikhemissi/serverless-workshop-demo/archive/refs/heads/main.zip) or clone the [project](https://github.com/ikhemissi/serverless-workshop-demo) locally
+First let's [download](https://github.com/microsoft/hands-on-lab-serverless/releases/download/latest/webapp.zip) or clone the [project](https://github.com/microsoft/hands-on-lab-serverless) locally and go inside the `src/webapp` folder.
 
 Now, you can follow these steps to create the static web app:
 
