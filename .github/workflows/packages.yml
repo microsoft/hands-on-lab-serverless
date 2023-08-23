@@ -19,14 +19,28 @@ jobs:
       with:
         type: 'zip'
         filename: 'webapp.zip'
-        path: 'src/webapp'
+        directory: 'src/webapp'
+    
+    - name: WebApp
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        type: 'tar'
+        filename: 'webapp.tar'
+        directory: 'src/webapp'
       
     - name: Solutions
       uses: thedoctor0/zip-release@0.7.1
       with:
         type: 'zip'
         filename: 'solutions.zip'
-        path: 'src/solutions'
+        directory: 'src/solutions'
+
+    - name: Solutions
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        type: 'tar'
+        filename: 'solutions.tar'
+        directory: 'src/solutions'
 
     - name: Update release
       uses: ncipollo/release-action@v1.12.0
