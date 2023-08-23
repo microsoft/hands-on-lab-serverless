@@ -262,17 +262,14 @@ az staticwebapp create \
     --resource-group <resource-group> \
     --location "westeurope"
 
-# 2. Go to the root of the downloaded app
-cd serverless-workshop-demo
-
-# 3. Install project dependencies
+# 2. Go to the root of the downloaded app and install project dependencies
 # You need to have NodeJS 18 installed
 npm install
 
-# 4. Build the Web App
+# 3. Build the Web App
 npm run swa:build
 
-# 5. Deploy the web app code into the Static Web App
+# 4. Deploy the web app code into the Static Web App
 # Replace <resource-group> with the name of your resource group
 # Back to the root repository
 npm run swa:deploy -- \
@@ -930,6 +927,8 @@ For the storage account associated to it: `stfunc<environment><region><applicati
 
 <details>
 <summary>Toggle solution</summary>
+
+The solutions in different language are provided just below, if necessary the source code with the solutions can be found here [download](https://github.com/microsoft/hands-on-lab-serverless/releases/download/latest/solutions.zip).
 
 #### Preparation
 
