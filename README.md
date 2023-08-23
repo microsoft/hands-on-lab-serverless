@@ -1,14 +1,17 @@
-# Project
+# Serverless
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+This Hands On Lab will let you discover and practice the Azure serverless services.
 
-As the maintainer of this project, please make a few updates:
+## Prerequisites
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+To start this Hands On Lab you will need :
+
+- An Azure Subscription with the `Contributor` role to create and manage the labs' resources
+- A dedicated resource group for this lab to ease the cleanup at the end.
+- The [Azure CLI][az-cli-install] installed on your machine
+- The [Azure Functions Core Tools][az-func-core-tools] installed, this will be useful for creating the scaffold of your Azure Functions using command line.
+- If you are using VS Code, you can also install the [Azure Function extension][azure-function-vs-code-extension]
+- Register the Azure providers on your Azure Subscription if not done yet: `Microsoft.CognitiveServices`, `Microsoft.DocumentDB`, `Microsoft.EventGrid`, `Microsoft.KeyVault`, `Microsoft.Logic`, `Microsoft.SignalRService`, `Microsoft.Web`
 
 ## Contributing
 
