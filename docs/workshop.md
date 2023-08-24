@@ -16,8 +16,6 @@ contacts: # Required. Must match the number of authors
 duration_minutes: 300
 tags: azure, azure functions, logic apps, event grid, key vault, cosmos db, email, app service, web pubsub, static web app, csu
 navigation_levels: 3
-sections_title:
-  - Azure Serverless Workshop
 ---
 
 # Azure Serverless Workshop
@@ -149,7 +147,7 @@ You will use this convention for the rest of the scenario:
 
 ## Programming language
 
-You will have to create few functions in this workshop to address our overall scenario. You can choose the programming language you are the most comfortable with among the ones [supported by Azure Functions][az-func-languages]. You will provide examples in Python and .NET 7 (isolated) for the moment, but other languages might come in the future.
+You will have to create few functions in this workshop to address our overall scenario. You can choose the programming language you are the most comfortable with among the ones [supported by Azure Functions][az-func-languages]. We will provide examples in Python and .NET 7 (isolated) for the moment, but other languages might be added in the future.
 
 With everything ready let's start the lab 🚀
 

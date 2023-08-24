@@ -14,8 +14,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: zip solutions
-      run:  cd src/solutions && zip -r ../../solutions.zip .
+    - name: .NET zip solutions
+      run:  cd src/solutions/dotnet && zip -r ../../../dotnet-solution.zip .
+
+    - name: NodeJS zip solutions
+      run:  cd src/solutions/nodejs && zip -r ../../../nodejs-solution.zip .
+
+    - name: python zip solutions
+      run:  cd src/solutions/python && zip -r ../../../python-solutions.zip .
 
     - name: zip webapp
       run:  cd src/webapp && zip -r ../../webapp.zip .
