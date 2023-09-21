@@ -1167,8 +1167,6 @@ Make sure to set `FILE_UPLOADING_FORMAT` to `binary` in the Web App settings as 
 
 #### Deployment and testing
 
-Deploy your function using the VS Code extension or by command line:
-
 ##### Deploy your function using the VS Code
 
 - Open the Azure extension in VS Code left panel
@@ -1179,6 +1177,8 @@ Deploy your function using the VS Code extension or by command line:
 ![Deploy to Function App](assets/function-app-deploy.png)
 
 ##### Deployment via Azure Function Core Tools
+
+Deploy your function using the VS Code extension or by command line:
 
 ```bash
 func azure functionapp publish func-<environment>-<region>-<application-name>-<owner>-<instance>
