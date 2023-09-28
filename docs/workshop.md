@@ -1,8 +1,8 @@
 ---
 published: true
 type: workshop
-title: Product Hands-on Lab - Serverless
-short_title: Serverless Workshop
+title: Product Hands-on Lab - Azure Serverless Architecture
+short_title: Azure Serverless Architecture
 description: This workshop will cover multiple serverless services that you will use to build a complete real world scenario.
 level: beginner # Required. Can be 'beginner', 'intermediate' or 'advanced'
 authors: # Required. You can add as many authors as needed
@@ -18,7 +18,7 @@ tags: azure, azure functions, logic apps, event grid, key vault, cosmos db, emai
 navigation_levels: 3
 ---
 
-# Azure Serverless Workshop
+# Product Hands-on Lab - Azure Serverless Architecture
 
 Welcome to this Azure Serverless Workshop. You'll be experimenting with Azure Serverless services in multiple labs to achieve a real world scenario. Don't worry, even if the challenges will increase in difficulty, this is a step by step lab, you will be guided through the whole process.
 
