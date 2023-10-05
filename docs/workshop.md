@@ -28,10 +28,10 @@ During this workshop you will have the instructions to complete each steps. It i
 
 While we firmly believe that Trial and Error is an essential part of any practical learning experience, it is probable that you might only have a couple hours in front of you to go through this lab.
 
-You will find a **FastTrack** version of this product hands-on lab (about 2 hours) to play while getting a grasp on most of the Azure Serverless concepts detailed in this lab.
+You will find a **FastTrack** version of this product hands-on lab (about 2 hours) to play while getting a grasp on most of the Azure Serverless essential concepts detailed in this lab.
 The **FastTrack** required steps will be prefixed with a `[FT]` label : These are mandatory for the lab to go forward. 
 
-We encourage you to come back to this lab to go through the entire lab explanations to get a deeper understanding of all the concepts described below, from Azure resource provisioning to 
+We encourage you to come back and go through the entire lab explanations later to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning and application deployment. 
 
 </div>
 
