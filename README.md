@@ -4,16 +4,13 @@ This Hands On Lab will let you discover and practice the Azure serverless servic
 
 ## Prerequisites
 
-To start this Hands On Lab you will need :
+You will find all the prerequisites at :  [ [MOAW] Product Hands-on Lab : Azure Serverless Architecture > Prerequisites][moaw-prereq-link]
 
-- An Azure Subscription with the `Contributor` role to create and manage the labs' resources
-- A dedicated resource group for this lab to ease the cleanup at the end.
-- The [Azure CLI][az-cli-install] installed on your machine
-- The [Azure Functions Core Tools][az-func-core-tools] installed, this will be useful for creating the scaffold of your Azure Functions using command line.
-- If you are using VS Code, you can also install the [Azure Function extension][azure-function-vs-code-extension]
-- Register the Azure providers on your Azure Subscription if not done yet: `Microsoft.CognitiveServices`, `Microsoft.DocumentDB`, `Microsoft.EventGrid`, `Microsoft.KeyVault`, `Microsoft.Logic`, `Microsoft.SignalRService`, `Microsoft.Web`
-
-
+Different Development Environment Options will also be offered :
+ 
+- Locally with the tools required
+- Devcontainer on your machine 
+- Codespace directly from your browser
 
 ## Contributing
 
@@ -36,6 +33,8 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+[moaw-prereq-link]: https://moaw.dev/workshop/gh:microsoft/hands-on-lab-serverless/main/docs/#prerequisites
 
 [az-cli-install]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 [az-func-core-tools]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Clinux%2Ccsharp%2Cportal%2Cbash#install-the-azure-functions-core-tools
