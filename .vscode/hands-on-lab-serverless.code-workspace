@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "..",
+		},
+		{
+			"path": "../src/webapp",
+			"name": "Lab 0 - Azure Static Web App "
+		}
+	],
+	"settings": {}
+}
