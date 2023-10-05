@@ -7,7 +7,7 @@ This Hands On Lab will let you discover and practice the Azure serverless servic
 You will find all the prerequisites at :  [ [MOAW] Product Hands-on Lab : Azure Serverless Architecture > Prerequisites][moaw-prereq-link]
 
 Different Development Environment Options will also be offered :
- 
+
 - Locally with the tools required
 - Devcontainer on your machine 
 - Codespace directly from your browser
@@ -35,12 +35,3 @@ Use of Microsoft trademarks or logos in modified versions of this project must n
 Any use of third-party trademarks or logos are subject to those third-party's policies.
 
 [moaw-prereq-link]: https://moaw.dev/workshop/gh:microsoft/hands-on-lab-serverless/main/docs/#prerequisites
-
-[az-cli-install]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
-[az-func-core-tools]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Clinux%2Ccsharp%2Cportal%2Cbash#install-the-azure-functions-core-tools
-[az-func-languages]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions#languages
-[az-naming-convention]: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
-[az-abrevation]: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations
-[az-portal]: https://portal.azure.com
-[vs-code]: https://code.visualstudio.com/
-[azure-function-vs-code-extension]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
