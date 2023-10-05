@@ -10,6 +10,12 @@
         "version":"latest"
       },
 
+      //Terraform + tflint install
+      "ghcr.io/devcontainers/features/terraform:latest":{ 
+        "version":"latest",
+        "tflint":"latest"
+      },
+
       // //Azure Function Core tools + Visual Studio Extension install
       "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1":{},
 
@@ -37,7 +43,9 @@
         "azurite.azurite",
         //Language related extensions
         "ms-dotnettools.csharp", 
-        "ms-python.python"        
+        "ms-python.python",
+        // Terraform
+        "hashicorp.terraform"    
       ]
     }
   },
