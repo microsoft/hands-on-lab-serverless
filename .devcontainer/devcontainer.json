@@ -1,6 +1,6 @@
 {
   "name": "Serverless Containers",
-  "dockerFile": "Dockerfile",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:7.0-jammy",
 
   "containerUser": "vscode",
 
@@ -8,11 +8,6 @@
       //Az CLI install
       "azure-cli": {
         "version":"latest"
-      },
-
-      "ghcr.io/devcontainers/features/docker-in-docker":{
-        "version":"latest",
-        "moby":"false"
       },
 
       // //Azure Function Core tools + Visual Studio Extension install
@@ -25,25 +20,24 @@
       "ghcr.io/devcontainers/features/python:1": {}
   },
 
-  //PORT Forward config : 
-  //7071 : Azure Function Cache-Refresh-Func Debug port
-  //7072 : Azure Function History-Func Debug port
+  //Ports Forward config : 
+  //7071 : Azure Function Debug Port
   //1000[0,1,2] : Azurite storage emulator used with Azure Function
-  "forwardPorts": [7071, 7072, 10000, 10001, 10002],
+  "forwardPorts": [7071, 10000, 10001, 10002],
 
-  //Static Web App Cli Install
+  // Specific tools to be added to the devcontainer (as no devcontainer feature available)
   "updateContentCommand": "bash .devcontainer/setup.sh",
 
   "customizations": {
-    // Configure properties specific to VS Code.
     "vscode": {
-      // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        "ms-dotnettools.csharp", 
-        "ms-vscode.vscode-node-azure-pack",
-        "humao.rest-client", 
+        // Azure Resources Ëxtension Pack
+        "ms-vscode.vscode-node-azure-pack", 
+        // Azurite : Storage Account Emulator for local Azure Function Debug
         "azurite.azurite",
-        "ms-azurecache.vscode-azurecache"
+        //Language related extensions
+        "ms-dotnettools.csharp", 
+        "ms-python.python"        
       ]
     }
   },
