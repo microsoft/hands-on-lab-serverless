@@ -733,6 +733,8 @@ The naming conventions are:
 <details>
 <summary>If not in [FastTrack]</summary>
 
+<!-- TODO: System Identity Logic Apps access to Azure Key Vault -->
+
 ```bash
 # Let's create the speech to text service account as free tier
 az cognitiveservices account create -n <cognitive-service-name> \
@@ -750,8 +752,6 @@ To allow the Logic App to access the Key Vault, you need to grant access to it. 
 
 ![System Identity](assets/logic-app-system-identity.png)
 
-</details>
-
 Then in your Key Vault, go to `Access policies` and create a new one, set the Secret access to `Get` and `List`:
 
 ![Key Vault Access](assets/key-vault-secret-access.png)
@@ -765,6 +765,8 @@ Now inside your Key Vault, in the `Secret` section add a new one called `SpeechT
 If you can't add the secrets, this means that you need to give to the account you are using, access to the Key Vault like you did previously with Logic App. So, in your Key Vault, go to `Access policies` and create a new one, set the Secret access to `Get`, `List` and `Set`.
 
 ![Key Vault Cognitive Secret](assets/key-vault-cognitive-secret.png)
+
+</details>
 
 With all of these ready, add a new action in your **logic app workflow** by searching for `Key Vault` and then select `Get Secret`. This will load the speech to text API key once.
 
