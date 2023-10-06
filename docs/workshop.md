@@ -1761,65 +1761,6 @@ You need to update the App settings of the Function App by adding the 2 new sett
 </details>
 
 <details>
-<summary> 🐍 Python</summary>
-
-#### Python implementation
-
-`function.json`:
-
-```json
-{
-    "scriptFile": "func.py",
-    "bindings": [
-        {
-            "type": "cosmosDBTrigger",
-            "name": "transcriptions",
-            "direction": "in",
-            "leaseCollectionName": "leases",
-            "connectionStringSetting": "COSMOS_DB_CONNECTION_STRING_SETTING",
-            "databaseName": "%COSMOS_DB_DATABASE_NAME%",
-            "collectionName": "%COSMOS_DB_CONTAINER_ID%",
-            "createLeaseCollectionIfNotExists": true
-        },
-        {
-            "type": "webPubSub",
-            "name": "actions",
-            "hub": "%WEB_PUBSUB_HUB_ID%",
-            "connection": "WEB_PUBSUB_CONNECTION_STRING",
-            "direction": "out"
-        }
-    ]
-}
-```
-
-`func.py`:
-
-```python
-import logging
-import json
-import azure.functions as func
-
-def main(transcriptions: func.DocumentList, actions: func.Out[str]) -> None:
-    if transcriptions:
-        logging.info('Document Id: %s', transcriptions[0]['id'])
-
-        actions.set(json.dumps({
-            'actionName': 'sendToAll',
-            'data': json.dumps(dict(transcriptions[0])),
-            'dataType': 'json'
-        }))
-```
-
-Don't forget to add an empty `__init__.py` for Python discovery mecanism.
-
-As you have probably already noticed the `connectionStringSetting`, `databaseName` and `collectionName` are populated with the same key as the previous Function. And because you deploy all your Functions in the same Azure Function from an infrastructure point of view, they are already shared accross the `Application settings`. However you must add 2 new settings values which are:
-
-- Set `WEB_PUBSUB_HUB_ID` with the name of the Web PubSub
-- Set `WEB_PUBSUB_CONNECTION_STRING` with one of the connection string in the `Keys` section of your Web PubSub resource on Azure.
-
-</details>
-
-<details>
 <summary>.NET 7</summary>
 
 #### .NET 7 implementation
@@ -1874,6 +1815,62 @@ using System.Text.Json;
 Notice the use of the 2 bindings to simplify the interaction with other services:
 - `CosmosDBTrigger`: this trigger will detect automatically new items added to the collection and run the function whenever that happens
 - `WebPubSubOutput`: this output binding will send a notification to the hub defined in its constructor. To send a notification to everyone in the hub, you need to return a `SendToAllAction` instance.
+
+</details>
+
+<details>
+<summary> 🐍 Python</summary>
+
+#### Python implementation
+
+`function.json`:
+
+```json
+{
+    "scriptFile": "func.py",
+    "bindings": [
+        {
+            "type": "cosmosDBTrigger",
+            "name": "transcriptions",
+            "direction": "in",
+            "leaseCollectionName": "leases",
+            "connectionStringSetting": "COSMOS_DB_CONNECTION_STRING_SETTING",
+            "databaseName": "%COSMOS_DB_DATABASE_NAME%",
+            "collectionName": "%COSMOS_DB_CONTAINER_ID%",
+            "createLeaseCollectionIfNotExists": true
+        },
+        {
+            "type": "webPubSub",
+            "name": "actions",
+            "hub": "%WEB_PUBSUB_HUB_ID%",
+            "connection": "WEB_PUBSUB_CONNECTION_STRING",
+            "direction": "out"
+        }
+    ]
+}
+```
+
+`func.py`:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+def main(transcriptions: func.DocumentList, actions: func.Out[str]) -> None:
+    if transcriptions:
+        logging.info('Document Id: %s', transcriptions[0]['id'])
+
+        actions.set(json.dumps({
+            'actionName': 'sendToAll',
+            'data': json.dumps(dict(transcriptions[0])),
+            'dataType': 'json'
+        }))
+```
+
+Don't forget to add an empty `__init__.py` for Python discovery mecanism.
+
+As you have probably already noticed the `connectionStringSetting`, `databaseName` and `collectionName` are populated with the same key as the previous Function. And because you deploy all your Functions in the same Azure Function from an infrastructure point of view, they are already shared accross the `Application settings`.
 
 </details>
 
