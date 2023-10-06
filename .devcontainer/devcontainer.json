@@ -38,8 +38,9 @@
         // Language related extensions
         "ms-dotnettools.csharp", 
         "ms-python.python",
-        // Mardown doc : 
-        "davidanson.vscode-markdownlint"
+        // Mardown helpers : 
+        "davidanson.vscode-markdownlint", 
+        "valentjn.vscode-ltex"
       ]
     }
   },

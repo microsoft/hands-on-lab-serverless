@@ -14,7 +14,7 @@ contacts: # Required. Must match the number of authors
   - "@justrebl"
   - "@ikhemissi"
 duration_minutes: 300
-tags: azure, azure functions, logic apps, event grid, key vault, cosmos db, email, app service, web pubsub, static web app, csu
+tags: azure, azure functions, logic apps, event grid, key vault, cosmos db, email, app service, web pubsub, static web app, csu, codespace, devcontainer
 navigation_levels: 3
 ---
 
@@ -24,27 +24,184 @@ Welcome to this Azure Serverless Workshop. You'll be experimenting with Azure Se
 
 During this workshop you will have the instructions to complete each steps. It is recommended to search for the answers in provided resources and links before looking at the solutions placed under the 'Toggle solution' panel.
 
-<div class="warning" data-title=" :rocket: [FastTrack] 2 hours version">
+<div class="warning" data-title="🚀 2 hours version">
 
-> While we firmly believe that Trial and Error is an essential part of any practical learning experience, it is probable that you might only have a couple hours in front of you to go through this lab.
->
+> While we strongly believe that **Trial and Error** is an essential part of a practical learning experience, it is probable that you might only have a couple hours in front of you to go through this lab.
+> 
 > You will find a **FastTrack** version of this product hands-on lab (about 2 hours) to play while getting a grasp on most of the Azure Serverless essential concepts detailed in this lab.
-The **FastTrack** required steps will be prefixed with a `[FastTrack]` label : These are mandatory for the lab to go forward. 
+The **FastTrack** required steps will be prefixed with a `🚀` label : These are mandatory for the lab to go forward. 
 >
-> We encourage you to come back and go through the entire lab explanations later to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning and application deployment. 
+> The 🚀 route will set up most of the infrastructures and connections between resources to help you focus on the application's content and configuration. 
+> We also provide instructions for a deep dive session where you'll prefer to configure everything manually via the command line or the Azure Portal. 
+> 
+> Most of the time, the deep dive path will not cross the 🚀 path, but if this happens, they will be hidden under a [🧑‍💻 Manual Setup] detail panel to avoid confusion with the 🚀 route.
+> These [🧑‍💻 Manual Setup] details can be ignored when you browse the 🚀 path.
+>
+> If you go the 🚀 path, we encourage you to come back and go through the entire lab explanations later to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning, application configuration and deployment.
+> 
+> In a deep dive session, **all of the instructions** being tagged with `🧑‍💻 Manual Setup`, 🚀 (or no tag at all) will be necessary to help you to complete the lab.
 
 </div>
 
 ## Prerequisites
 
-Before starting this workshop, be sure you have:
+Before starting this lab, be sure to set your Azure environment :
 
-- An Azure Subscription with the `Contributor` role to create and manage the labs' resources
+- An Azure Subscription with the **Contributor** role to create and manage the labs' resources and deploy the infrastructure as code
 - A dedicated resource group for this lab to ease the cleanup at the end.
-- The [Azure CLI][az-cli-install] installed on your machine
-- The [Azure Functions Core Tools][az-func-core-tools] installed, this will be useful for creating the scaffold of your Azure Functions using command line.
-- If you are using VS Code, you can also install the [Azure Function extension][azure-function-vs-code-extension]
 - Register the Azure providers on your Azure Subscription if not done yet: `Microsoft.CognitiveServices`, `Microsoft.DocumentDB`, `Microsoft.EventGrid`, `Microsoft.KeyVault`, `Microsoft.Logic`, `Microsoft.SignalRService`, `Microsoft.Web`
+
+To retrieve the lab content :
+
+- A Github account (Free, Team or Enterprise)
+- Create a [fork][Repo-fork] of the repository from the **main** branch to help you keep track of your changes
+
+3 development options are available:
+  - 🥇 *Preferred method* : Pre-configured GitHub Codespace 
+  - 🥈 Local Devcontainer
+  - 🥉 Local Dev Environment with all the prerequisites detailed below
+
+<div class="tip" data-title="Tips">
+
+> To focus on the main purpose of the lab, we encourage the usage of devcontainers/codespace as they abstract the dev environment configuration, and avoid potential local dependencies conflict.
+> 
+> You could decide to run everything without relying on a devcontainer : To do so, make sure you install all the prerequisites detailed below.
+
+</div>
+
+### 🥇 : Pre-configured GitHub Codespace
+
+To use a Github Codespace, you will need :
+- [A GitHub Account][Github-account]
+
+Github Codespace offers the ability to run a complete dev environment (Visual Studio Code, Extensions, Tools, Secure port forwarding etc.) on a dedicated virtual machine. 
+The configuration for the environment is defined in the `.devcontainer` folder, making sure everyone gets to develop and practice on identical environments : No more conflict on dependencies or missing tools ! 
+
+Every Github account (even the free ones) grants access to 120 vcpu hours per month, _**for free**_. A 2 vcpu dedicated environment is enough for the purpose of the lab, meaning you could run such environment for 60 hours a month at no cost!
+
+To get your codespace ready for the labs, here are a few steps to execute : 
+- After you forked the repo, click on `<> Code`, `Codespaces` tab and then click on the `+` button:
+
+![codespace-new](./assets/codespace-new.png)
+
+- You can also provision a beefier configuration by defining creation options and select the **Machine Type** you like : 
+
+![codespace-configure](./assets/codespace-configure.png)
+
+### 🥈 : Using a local Devcontainer
+
+This repo comes with a Devcontainer configuration that will let you open a fully configured dev environment from your local Visual Studio Code, while still being completely isolated from the rest of your local machine configuration : No more dependancy conflict.
+Here are the required tools to do so : 
+
+- [Git client][Git-client] 
+- [Docker Desktop][Docker-desktop] running
+- [Visual Studio Code][vs-code] installed
+
+Start by cloning the Hands-on-lab-Serverless repo you just forked on your local Machine and open the local folder in Visual Studio Code.
+Once you have cloned the repository locally, make sure Docker Desktop is up and running and open the cloned repository in Visual Studio Code.  
+
+You will be prompted to open the project in a Dev Container. Click on `Reopen in Container`. 
+
+If you are not prompted by Visual Studio Code, you can open the command palette (`Ctrl + Shift + P`) and search for `Reopen in Container` and select it: 
+
+![devcontainer-reopen](./assets/devcontainer-reopen.png)
+
+### 🥉 : Using your own local environment
+
+The following tools and access will be necessary to run the lab in good conditions on a local environment :  
+
+- [Git client][Git-client] 
+- [Visual Studio Code][vs-code] installed (you will use Dev Containers)
+- [Azure CLI][az-cli-install] installed on your machine
+- [Azure Functions Core Tools][az-func-core-tools] installed, this will be useful for creating the scaffold of your Azure Functions using command line.
+- If you are using VS Code, you can also install the [Azure Function extension][azure-function-vs-code-extension]
+- The 3 following languages if you want to run all the Azure Functions solutions : 
+  - [.Net 7][download-dotnet]
+  - [Python 3.x][download-python]
+  - [Node 18][download-node]
+
+Once you have set up your local environment, you can clone the Hands-on-lab-serverless repo you just forked on your machine, and open the local folder in Visual Studio Code and head to the next step. 
+
+[download-dotnet]: https://dotnet.microsoft.com/en-us/download/dotnet/7.0
+[download-python]: https://www.python.org/downloads/
+[download-node]: https://nodejs.org/en
+
+### 👉 All : Load the Workspace
+
+Once your environment is ready, you will have to enter the Visual Studio Workspace to get all the tools ready.
+To do so, click the **burger menu** in the top left corner (visible only with codespace), **File** and then **Open Workspace from File...** 
+
+![codespace-workspace](./assets/codespace-workspace.png)
+
+- Select `.vscode/hands-on-lab-serverless.code-workspace` :
+
+![codespace-workspace-select](./assets/codespace-workspace-select.png)
+
+- You are now ready to go! For the rest of the lab, in case you lose the terminal, you can press `Ctrl + J` or open a new one here : 
+
+![codespace-terminal-new](./assets/codespace-terminal-new.png)
+
+Let's begin!
+
+## Sign in to Azure
+
+<div class="task" data-title="Task">
+
+> - Log into your Azure subscription in your environment using Azure CLI and on the [Azure Portal][az-portal] using your credentials.
+> - Instructions and solutions will be given for the Azure CLI, but you can also use the Azure Portal if you prefer.
+> - Register the Azure providers on your Azure Subscription if not done yet: `Microsoft.Web`, `Microsoft.OperationalInsights`, `Microsoft.Cache`, `Microsoft.ApiManagement`, `Microsoft.DocumentDB`
+
+</div>
+
+<details>
+
+<summary>Toggle solution</summary>
+
+```bash
+# Login to Azure : 
+# --tenant : Optional | In case your Azure account has access to multiple tenants
+
+# Option 1 : Local Environment 
+az login --tenant <yourtenantid or domain.com>
+# Option 2 : Github Codespace : you might need to specify --use-device-code parameter to ease the az cli authentication process
+az login --use-device-code --tenant <yourtenantid or domain.com>
+
+# Display your account details
+az account show
+# Select your Azure subscription Id 
+az account set --subscription <subscription-id>
+
+# Register the following Azure providers if they are not already
+# App Service & Azure Functions
+az provider register --namespace 'Microsoft.Web'
+# Azure Monitor
+az provider register --namespace 'Microsoft.OperationalInsights'
+# Azure Cache for Redis
+az provider register --namespace 'Microsoft.Cache'
+# API Management
+az provider register --namespace 'Microsoft.ApiManagement'
+# Azure Cosmos DB  
+az provider register --namespace 'Microsoft.DocumentDB'
+```
+
+</details>
+
+<div class="task" data-title="Task">
+
+> You will find the instructions and expected configurations for each Lab step in these yellow **Task** boxes.
+> Inputs and parameters to select will be defined, all the rest can remain as default as it has no impact on the scenario.
+
+</div>
+
+[az-cli-install]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+[Docker-desktop]: https://www.docker.com/products/docker-desktop/
+[vs-code]: https://code.visualstudio.com/
+[Repo-fork]: https://github.com/microsoft/hands-on-lab-serverless/fork
+[Git-client]: https://git-scm.com/downloads
+[Github-account]: https://github.com/join
+[azure-vs-code-extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+[az-portal]: https://portal.azure.com/signin/index/
+
 
 <div class="task" data-title="Task">
 
@@ -62,8 +219,11 @@ Before starting this workshop, be sure you have:
 
 ```bash
 
-# Login to Azure
-az login
+# Option 1 : Local Environment 
+az login --tenant <yourtenantid or domain.com>
+# Option 2 : Github Codespace : you might need to specify --use-device-code parameter to ease the az cli authentication process
+az login --use-device-code --tenant <yourtenantid or domain.com>
+
 # Display your account details
 az account show
 # Select your Azure subscription
@@ -293,7 +453,7 @@ It is pretty much a blank canvas at this stage, but you will soon be able to add
 
 ---
 
-# Lab 1 : Transcribe an audio file (3 hours)
+# 🚀 Lab 1 : Transcribe an audio file (3 hours)
 
 For this first lab, you will focus on the following scope :
 
@@ -376,7 +536,7 @@ Event Grid is an event broker that you can use to integrate applications while s
 
 The main Event Grid concept we'll use for the rest of this lab is called `System Topic`. A system topic in Event Grid represents one or more events published by Azure services such as Azure Storage and Azure Event Hubs. It basically plays the role of a pub-sub topic centralizing all the events of the associated Azure resource, and send them to all the subscribers based on their defined `event filters`.
 
-### [FastTrack] Create the Event Grid System Topic
+### 🚀 Create the Event Grid System Topic
 
 You can create Event Grid System Topics :
 
@@ -505,7 +665,7 @@ az logic workflow create --resource-group <resource-group> \
 
 </details>
 
-### [FastTrack] Trigger the Logic app
+### 🚀 Trigger the Logic app
 
 Next step is to actually trigger the Logic App based on the event raised by Event Grid when a file is uploaded to the audios' container.
 
@@ -595,7 +755,7 @@ It is also possible to rename the different operations of your Logic App to make
 
 [az-portal]: https://portal.azure.com
 
-### [FastTrack] Retrieve file content
+### 🚀 Retrieve file content
 
 Now you have a blob upload event triggering the Logic App, you will be able to work with extended `metadata` shared in the event message.
 
@@ -674,7 +834,7 @@ Your Logic App should look like this:
 
 </details>
 
-### [FastTrack] Consume Speech to Text APIs
+### 🚀 Consume Speech to Text APIs
 
 The Azure Cognitive Services are cloud-based AI services that give the ability to developers to quickly build intelligent apps thanks to these pre-trained models. They are available through client library SDKs in popular development languages and REST APIs.
 
@@ -731,7 +891,7 @@ The naming conventions are:
 <summary>Toggle solution</summary>
 
 <details>
-<summary>If not in [FastTrack]</summary>
+<summary>If not in 🚀</summary>
 
 <!-- TODO: System Identity Logic Apps access to Azure Key Vault -->
 
@@ -789,7 +949,7 @@ In the Logic App `Run History`, you should see the transcript of the audio file 
 
 </details>
 
-### [FastTrack] Store data to Cosmos DB
+### 🚀 Store data to Cosmos DB
 
 Azure Cosmos DB is a fully managed NoSQL database which offers Geo-redundancy and multi-region write capabilities. It currently supports NoSQL, MongoDB, Cassandra, Gremlin, Table and PostgreSQL APIs and offers a serverless option which is perfect for our use case.
 
@@ -833,7 +993,7 @@ Now you can add the last step of the Logic App flow that will store the transcri
 <summary>Toggle solution</summary>
 
 <details>
-<summary>If not in [FastTrack]</summary>
+<summary>If not in 🚀</summary>
 
 ```bash
 # Create the Cosmos DB account using serverless
@@ -921,7 +1081,7 @@ In the same `Function App` you will be able to add multiple `functions`, each wi
 
 Azure Functions run and benefit from the App Service platform, offering features like: deployment slots, continuous deployment, HTTPS support, hybrid connections and others. Apart from the `Consumption` (Serverless) model we're most interested in this Lab, Azure Functions can also be deployed a dedicated `App Service Plan`or in a hybrid model called `Premium Plan`.
 
-### [FastTrack] Azure Functions : Let's practice
+### 🚀 Azure Functions : Let's practice
 
 At this stage in our scenario, the serverless transcription engine is ready and the first lab is almost complete. The last thing you need to add is an API to upload the audio file with a unique `GUID` name to your storage account.
 
@@ -965,11 +1125,11 @@ For the storage account associated to it: `stfunc<environment><region><applicati
 The solutions in different languages are provided below, if necessary the source code with the solutions can be found in this Github Repository, under `./src/solutions/<Preferred_Language>`.
 
 <details>
-<summary>If not in [FastTrack]</summary>
+<summary> 🧑‍💻 Manual Setup </summary>
 
 #### Preparation
 
-You must create a storage account dedicated to your Azure Function in order to not mix the audios files and the Azure Function specificities.
+You need to create a storage account dedicated to your Azure Function in order not to mix the audios files' storage and the Azure Function requirements.
 
 ```bash
 
@@ -980,16 +1140,7 @@ az storage account create --name <function-storage-account-name> \
                           --sku Standard_LRS
 ```
 
-</details>
-
-#### .NET 7 implementation
-
-In this version of the implementation, you will be using the [.NET 7 Isolated](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-in-process-differences) runtime.
-
-<details>
-<summary>If not in [FastTrack]</summary>
-
-First, you will need to create a Function App with the dotnet runtime:
+You will then need to create a Function App with the dotnet runtime:
 
 ```bash
 # Create a serverless function app in the resource group.
@@ -1002,8 +1153,6 @@ az functionapp create --name <function-name> \
                       --resource-group <resource-group> \
                       --functions-version 4
 ```
-
-</details>
 
 Next, you will create a function using the [Azure Function Core Tools][azure-function-core-tools]:
 
@@ -1026,6 +1175,16 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs --v
 code .
 
 ```
+
+Open the Azure Function App resource in the [Azure Portal][az-portal] and go to the `Configuration` panel. Then update the App Settings with the `STORAGE_ACCOUNT_CONTAINER` to `audios` and get a connection string from the storage account with your audios container and set the `STORAGE_ACCOUNT_CONNECTION_STRING`.
+
+Finally, make sure to set `FILE_UPLOADING_FORMAT` to `binary` in the Static Web App settings as this function implementation expects the audio file contents to be passed directly in the POST request body, without using a form.
+
+</details>
+
+#### .NET 7 implementation
+
+In this version of the implementation, you will be using the [.NET 7 Isolated](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-in-process-differences) runtime.
 
 Now that you have a skeleton for our `AudioUpload` function in the `AudioUpload.cs` file, you will need to update it to meet the following goals:
 - It should read the uploaded file from the body of the POST request
@@ -1207,10 +1366,6 @@ def main(req: func.HttpRequest, outputblob: func.Out[bytes]) -> func.HttpRespons
 
 The function will accept POST requests with a file in the body, upload the file to a blob storage, and then return a `200` response to indicate that the request was processed successfully.
 
-Open the Azure Function App resource in the [Azure Portal][az-portal] and go to the `Configuration` panel. Then update the App Settings with the `STORAGE_ACCOUNT_CONTAINER` to `audios` and get a connection string from the storage account with your audios container and set the `STORAGE_ACCOUNT_CONNECTION_STRING`.
-
-Make sure to set `FILE_UPLOADING_FORMAT` to `binary` in the Web App settings as this function implementation expects the audio file contents to be passed directly in the POST request body, without using a form.
-
 #### Deployment and testing
 
 ##### Deploy your function with VS Code
@@ -1269,7 +1424,7 @@ The connector inside the Azure Logic App doesn't provide this possibility direct
 
 </details>
 
-### [FastTrack] Connect the Web App
+### 🚀 Connect the Web App
 
 It's now time to connect the Azure Function which stand for a small API to upload your audio file and the Static Web App which is the front end of your application. The API Management (APIM) will be added in a future lab.
 
