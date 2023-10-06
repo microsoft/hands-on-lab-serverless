@@ -22,7 +22,7 @@ navigation_levels: 3
 
 Welcome to this Azure Serverless Workshop. You'll be experimenting with Azure Serverless services in multiple labs to achieve a real world scenario. Don't worry, even if the challenges will increase in difficulty, this is a step by step lab, you will be guided through the whole process.
 
-During this workshop you will have the instructions to complete each steps. It is recommended to search for the answers in provided resources and links before looking at the solutions placed under the 'Toggle solution' panel.
+During this workshop you will have the instructions to complete each steps. It is recommended to search for the answers in provided resources and links before looking at the solutions placed under the '📚 Toggle solution' panel.
 
 <div class="warning" data-title="🚀 2 hours version">
 
@@ -153,7 +153,7 @@ To do so, click the **burger menu** in the top left corner (visible only with co
 
 Let's begin!
 
-### 🔑 Sign in to Azure
+### 🔑 All : Sign in to Azure
 
 <div class="task" data-title="Task">
 
@@ -165,7 +165,7 @@ Let's begin!
 
 <details>
 
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 ```bash
 # Login to Azure : 
@@ -320,7 +320,7 @@ Remember, the naming convention for a resource groups will be: `rg-<environment>
 [resource-group]: https://learn.microsoft.com/fr-fr/cli/azure/group?view=azure-cli-latest
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 ```bash
 # Use az account list-locations to get a location:
@@ -445,7 +445,7 @@ With the resource group ready, let's create a storage account with a container n
 [storage-account-container]: https://learn.microsoft.com/fr-fr/cli/azure/storage/container?view=azure-cli-latest
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 ```bash
 # Create the Storage Account with Standard LRS
@@ -534,7 +534,7 @@ The naming convention for an Event Grid System Topic is: `egst-audio-storage-<en
 
 <details>
 
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 To create an Event Grid System Topic, several parameters are mandatory :
 
@@ -609,7 +609,7 @@ The naming convention for Logic Apps is: `logic-<environment>-<region>-<applicat
 [azure-logic-app]: https://learn.microsoft.com/en-us/cli/azure/logic/workflow?view=azure-cli-latest
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 ```bash
 
@@ -691,7 +691,7 @@ If you have set everything as expected, you should see the following entry in th
 [event-grid-subject-filtering]: https://learn.microsoft.com/en-us/azure/event-grid/event-filtering#subject-filtering
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 In the [Azure Portal][az-portal] inside the Logic App just created click on the `Edit` button. Then select `Blank Logic App`. In the triggers list search for `Event Grid` and select the `When a resource event occurs` trigger.
 
@@ -759,7 +759,7 @@ Based on below resources and the previous definition step, you should be able to
 [event-grid-common-schema]: https://learn.microsoft.com/en-us/azure/event-grid/event-schema#event-schema
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 First of all, add a new step after the Event Grid trigger and search for `Azure Blob Storage` as an action. Select `Get blob content (V2)` as the action to use.
 
@@ -849,7 +849,7 @@ The naming conventions are:
 [cognitive-service-api]: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=macos%2Cterminal&pivots=programming-language-rest
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 <details>
 <summary>If not in 🚀</summary>
@@ -951,7 +951,7 @@ Now you can add the last step of the Logic App flow that will store the transcri
 [logic-app-cosmos-db-action]: https://learn.microsoft.com/en-us/azure/connectors/connectors-create-api-cosmos-db?tabs=consumption
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 <details>
 <summary>If not in 🚀</summary>
@@ -1081,7 +1081,7 @@ For the storage account associated to it: `stfunc<environment><region><applicati
 </div>
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 The solutions in different languages are provided below, if necessary the source code with the solutions can be found in this Github Repository, under `./src/solutions/<Preferred_Language>`.
 
@@ -1142,6 +1142,9 @@ Open the Azure Function App resource in the [Azure Portal][az-portal] and go to 
 Finally, make sure to set `FILE_UPLOADING_FORMAT` to `binary` in the Static Web App settings as this function implementation expects the audio file contents to be passed directly in the POST request body, without using a form.
 
 </details>
+
+<details>
+<summary>.NET 7</summary>
 
 #### .NET 7 implementation
 
@@ -1205,6 +1208,11 @@ public AudioUploadOutput Run(
     };
 }
 ```
+
+</details>
+
+<details>
+<summary> 🐍 Python</summary>
 
 #### Python implementation
 
@@ -1327,6 +1335,8 @@ def main(req: func.HttpRequest, outputblob: func.Out[bytes]) -> func.HttpRespons
 
 The function will accept POST requests with a file in the body, upload the file to a blob storage, and then return a `200` response to indicate that the request was processed successfully.
 
+</details>
+
 #### Deployment and testing
 
 ##### Deploy your function with VS Code
@@ -1402,7 +1412,7 @@ It's now time to connect the Azure Function which stand for a small API to uploa
 </div>
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 First, go to the Azure Static Web App and inside `Configuration` in the `Application Settings` set the environment variable `FILE_UPLOADING_URL` to the same Url you used inside Postman previously.
 
@@ -1488,9 +1498,10 @@ This function will be used to show all existing transcriptions on the demo Web A
 </div>
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
-#### Overview
+<details>
+<summary> 🧑‍💻 Manual Setup </summary>
 
 Add a new HTTP-triggered function `GetTranscriptions` to your Function App and use the following settings:
 
@@ -1498,7 +1509,17 @@ Add a new HTTP-triggered function `GetTranscriptions` to your Function App and u
 |-------------------------------------|---------------------------------|----------------------|
 | COSMOS_DB_DATABASE_NAME             | Name of the Cosmos DB database  | `HolDb`              |
 | COSMOS_DB_CONTAINER_ID              | Name of the container in the DB | `audios_transcripts` |
-| COSMOS_DB_CONNECTION_STRING_SETTING | Cosmos DB connection string     |                      |
+| COSMOS_DB_CONNECTION_STRING_SETTING | Cosmos DB connection string     |      In the Azure Portal                |
+
+Go to the Azure Function in your Azure Portal, inside the `Configuration` and `Application settings` and add the 3 new settings values:
+
+- Add the App settings `COSMOS_DB_DATABASE_NAME` and `COSMOS_DB_CONTAINER_ID` and set their values like defined in the Overview section above 
+- Set value of the connection string `COSMOS_DB_CONNECTION_STRING_SETTING` using the `Keys` section of your Cosmos Db resource on Azure.
+
+</details>
+
+<details>
+<summary> 🐍 Python</summary>
 
 #### Python implementation
 
@@ -1557,6 +1578,11 @@ Now, go to the Azure Function in your Azure Portal, inside the `Configuration` a
 - Set value of the connection string `COSMOS_DB_CONNECTION_STRING_SETTING` using the `Keys` section of your Cosmos Db resource on Azure.
 
 Don't forget to add an empty `__init__.py` for Python discovery mecanism.
+
+</details>
+
+<details>
+<summary>.NET 7</summary>
 
 #### .NET 7 implementation
 
@@ -1632,10 +1658,7 @@ In addition to defining the environment variables such as the name of the databa
 
 Check the [Query items guide](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-dotnet-query-items) for more details about the query language.
 
-Lastly, go to the Azure Function in your Azure Portal, inside the `Configuration` and `Application settings` and add the 3 new settings values:
-
-- Add the App settings `COSMOS_DB_DATABASE_NAME` and `COSMOS_DB_CONTAINER_ID` and set their values like defined in the Overview section above 
-- Set value of the connection string `COSMOS_DB_CONNECTION_STRING_SETTING` using the `Keys` section of your Cosmos Db resource on Azure.
+</details>
 
 </details>
 
@@ -1678,7 +1701,7 @@ The flow will be the following:
 </div>
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 ```sh
 # Create a Web PubSub instance
@@ -1718,9 +1741,10 @@ The next step is to use the newly created Web PubSub instance to publish new tra
 </div>
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution </summary>
 
-#### Overview
+<details>
+<summary> 🧑‍💻 Manual</summary>
 
 Add a new Cosmos DB-triggered function `CosmosToWebPubSub` to your Function App and use the following settings:
 
@@ -1729,6 +1753,15 @@ Add a new Cosmos DB-triggered function `CosmosToWebPubSub` to your Function App 
 | WEB_PUBSUB_HUB_ID                   | Web PubSub hub name     |  
 | WEB_PUBSUB_CONNECTION_STRING        | Web PubSub hub connection string    |                      
 
+You need to update the App settings of the Function App by adding the 2 new settings:
+
+- Set `WEB_PUBSUB_HUB_ID` with the name of the Web PubSub
+- Set `WEB_PUBSUB_CONNECTION_STRING` with one of the connection string in the `Keys` section of your Web PubSub resource on Azure.
+
+</details>
+
+<details>
+<summary> 🐍 Python</summary>
 
 #### Python implementation
 
@@ -1784,6 +1817,11 @@ As you have probably already noticed the `connectionStringSetting`, `databaseNam
 - Set `WEB_PUBSUB_HUB_ID` with the name of the Web PubSub
 - Set `WEB_PUBSUB_CONNECTION_STRING` with one of the connection string in the `Keys` section of your Web PubSub resource on Azure.
 
+</details>
+
+<details>
+<summary>.NET 7</summary>
+
 #### .NET 7 implementation
 
 Let's create a Cosmos DB triggered function using the template `CosmosDBTrigger` and use the `WebPubSub` extension to send notifications to the `Web PubSub` hub using the `WebPubSubOutput` output binding.
@@ -1837,10 +1875,7 @@ Notice the use of the 2 bindings to simplify the interaction with other services
 - `CosmosDBTrigger`: this trigger will detect automatically new items added to the collection and run the function whenever that happens
 - `WebPubSubOutput`: this output binding will send a notification to the hub defined in its constructor. To send a notification to everyone in the hub, you need to return a `SendToAllAction` instance.
 
-Finally, you need to update the App settings of the Function App by adding the 2 new settings:
-
-- Set `WEB_PUBSUB_HUB_ID` with the name of the Web PubSub
-- Set `WEB_PUBSUB_CONNECTION_STRING` with one of the connection string in the `Keys` section of your Web PubSub resource on Azure.
+</details>
 
 </details>
 
@@ -1864,7 +1899,7 @@ The last step is to consume the newly published transcriptions in the demo Web A
 </div>
 
 <details>
-<summary>Toggle solution</summary>
+<summary>📚 Toggle solution</summary>
 
 You can retreive a connection string for the Web PubSub directly with the Azure Portal or using this command line:
 
