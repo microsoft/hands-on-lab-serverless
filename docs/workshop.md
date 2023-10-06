@@ -153,7 +153,7 @@ To do so, click the **burger menu** in the top left corner (visible only with co
 
 Let's begin!
 
-### 🔑 Sign in to Azure
+### 🔑 All : Sign in to Azure
 
 <div class="task" data-title="Task">
 
