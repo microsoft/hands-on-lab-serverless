@@ -24,7 +24,7 @@ Welcome to this Azure Serverless Workshop. You'll be experimenting with Azure Se
 
 During this workshop you will have the instructions to complete each steps. It is recommended to search for the answers in provided resources and links before looking at the solutions placed under the 'Toggle solution' panel.
 
-<div class="warning" data-title="[ :rocket: FastTrack] 2 hours version">
+<div class="warning" data-title=" :rocket: [FastTrack] 2 hours version">
 
 > While we firmly believe that Trial and Error is an essential part of any practical learning experience, it is probable that you might only have a couple hours in front of you to go through this lab.
 >
