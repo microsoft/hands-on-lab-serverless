@@ -852,7 +852,7 @@ The naming conventions are:
 <summary>📚 Toggle solution</summary>
 
 <details>
-<summary>[🧑‍💻 Manual Setup]</summary>
+<summary>🧑‍💻 Manual Setup</summary>
 
 <!-- TODO: System Identity Logic Apps access to Azure Key Vault -->
 
@@ -954,7 +954,7 @@ Now you can add the last step of the Logic App flow that will store the transcri
 <summary>📚 Toggle solution</summary>
 
 <details>
-<summary>[🧑‍💻 Manual Setup]</summary>
+<summary>🧑‍💻 Manual Setup</summary>
 
 ```bash
 # Create the Cosmos DB account using serverless
@@ -1086,7 +1086,7 @@ For the storage account associated to it: `stfunc<environment><region><applicati
 The solutions in different languages are provided below, if necessary the source code with the solutions can be found in this Github Repository, under `./src/solutions/<Preferred_Language>`.
 
 <details>
-<summary> 🧑‍💻 Manual Setup </summary>
+<summary>🧑‍💻 Manual Setup</summary>
 
 #### Preparation
 
@@ -1501,7 +1501,7 @@ This function will be used to show all existing transcriptions on the demo Web A
 <summary>📚 Toggle solution</summary>
 
 <details>
-<summary> 🧑‍💻 Manual Setup </summary>
+<summary> 🧑‍💻 Manual Setup</summary>
 
 Add a new HTTP-triggered function `GetTranscriptions` to your Function App and use the following settings:
 
@@ -1744,7 +1744,7 @@ The next step is to use the newly created Web PubSub instance to publish new tra
 <summary>📚 Toggle solution </summary>
 
 <details>
-<summary> 🧑‍💻 Manual</summary>
+<summary>🧑‍💻 Manual Setup</summary>
 
 Add a new Cosmos DB-triggered function `CosmosToWebPubSub` to your Function App and use the following settings:
 
