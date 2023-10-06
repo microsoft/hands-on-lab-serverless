@@ -43,6 +43,16 @@ The **FastTrack** required steps will be prefixed with a `🚀` label : These ar
 
 </div>
 
+<div class="task" data-title="Task">
+
+> You will find the instructions and expected configurations for each Lab step in these yellow **Task** boxes.
+> Inputs and parameters to select will be defined, all the rest can remain as default as it has no impact on the scenario.
+>
+> Log into your Azure subscription locally using Azure CLI and on the [Azure Portal][az-portal] using your own credentials.
+> Instructions and solutions will be given for the Azure CLI, but you can also use the Azure Portal if you prefer.
+
+</div>
+
 ## Prerequisites
 
 Before starting this lab, be sure to set your Azure environment :
@@ -168,64 +178,6 @@ az login --use-device-code --tenant <yourtenantid or domain.com>
 
 # Display your account details
 az account show
-# Select your Azure subscription Id 
-az account set --subscription <subscription-id>
-
-# Register the following Azure providers if they are not already
-# App Service & Azure Functions
-az provider register --namespace 'Microsoft.Web'
-# Azure Monitor
-az provider register --namespace 'Microsoft.OperationalInsights'
-# Azure Cache for Redis
-az provider register --namespace 'Microsoft.Cache'
-# API Management
-az provider register --namespace 'Microsoft.ApiManagement'
-# Azure Cosmos DB  
-az provider register --namespace 'Microsoft.DocumentDB'
-```
-
-</details>
-
-<div class="task" data-title="Task">
-
-> You will find the instructions and expected configurations for each Lab step in these yellow **Task** boxes.
-> Inputs and parameters to select will be defined, all the rest can remain as default as it has no impact on the scenario.
-
-</div>
-
-[az-cli-install]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
-[Docker-desktop]: https://www.docker.com/products/docker-desktop/
-[vs-code]: https://code.visualstudio.com/
-[Repo-fork]: https://github.com/microsoft/hands-on-lab-serverless/fork
-[Git-client]: https://git-scm.com/downloads
-[Github-account]: https://github.com/join
-[azure-vs-code-extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-[az-portal]: https://portal.azure.com/signin/index/
-
-
-<div class="task" data-title="Task">
-
-> You will find the instructions and expected configurations for each Lab step in these yellow **Task** boxes.
-> Inputs and parameters to select will be defined, all the rest can remain as default as it has no impact on the scenario.
->
-> Log into your Azure subscription locally using Azure CLI and on the [Azure Portal][az-portal] using your own credentials.
-> Instructions and solutions will be given for the Azure CLI, but you can also use the Azure Portal if you prefer.
-
-</div>
-
-<details>
-
-<summary>Toggle solution</summary>
-
-```bash
-
-# Option 1 : Local Environment 
-az login --tenant <yourtenantid or domain.com>
-# Option 2 : Github Codespace : you might need to specify --use-device-code parameter to ease the az cli authentication process
-az login --use-device-code --tenant <yourtenantid or domain.com>
-
-# Display your account details
-az account show
 # Select your Azure subscription
 az account set --subscription <subscription-id>
 
@@ -248,6 +200,17 @@ az provider register --namespace 'Microsoft.Web'
 ```
 
 </details>
+
+[az-cli-install]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+[Docker-desktop]: https://www.docker.com/products/docker-desktop/
+[vs-code]: https://code.visualstudio.com/
+[Repo-fork]: https://github.com/microsoft/hands-on-lab-serverless/fork
+[Git-client]: https://git-scm.com/downloads
+[Github-account]: https://github.com/join
+[azure-vs-code-extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+[az-portal]: https://portal.azure.com/signin/index/
+
+<details>
 
 ## Scenario
 
