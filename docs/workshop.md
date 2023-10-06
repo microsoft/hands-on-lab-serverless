@@ -24,14 +24,14 @@ Welcome to this Azure Serverless Workshop. You'll be experimenting with Azure Se
 
 During this workshop you will have the instructions to complete each steps. It is recommended to search for the answers in provided resources and links before looking at the solutions placed under the 'Toggle solution' panel.
 
-<div class="warning" data-title="[FastTrack] FastTrack : 2 hours version" 
+<div class="warning" data-title="[FastTrack] FastTrack : 2 hours version">
 
-While we firmly believe that Trial and Error is an essential part of any practical learning experience, it is probable that you might only have a couple hours in front of you to go through this lab.
-
-You will find a **FastTrack** version of this product hands-on lab (about 2 hours) to play while getting a grasp on most of the Azure Serverless essential concepts detailed in this lab.
+> While we firmly believe that Trial and Error is an essential part of any practical learning experience, it is probable that you might only have a couple hours in front of you to go through this lab.
+>
+> You will find a **FastTrack** version of this product hands-on lab (about 2 hours) to play while getting a grasp on most of the Azure Serverless essential concepts detailed in this lab.
 The **FastTrack** required steps will be prefixed with a `[FastTrack]` label : These are mandatory for the lab to go forward. 
-
-We encourage you to come back and go through the entire lab explanations later to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning and application deployment. 
+>
+> We encourage you to come back and go through the entire lab explanations later to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning and application deployment. 
 
 </div>
 
@@ -48,7 +48,7 @@ Before starting this workshop, be sure you have:
 
 <div class="task" data-title="Task">
 
-> You will find the instructions and expected configurations for each Lab step in these yellow "Task" boxes.
+> You will find the instructions and expected configurations for each Lab step in these yellow **Task** boxes.
 > Inputs and parameters to select will be defined, all the rest can remain as default as it has no impact on the scenario.
 >
 > Log into your Azure subscription locally using Azure CLI and on the [Azure Portal][az-portal] using your own credentials.
@@ -684,7 +684,7 @@ Cognitive Services can be categorized into five main areas:
 - Language : Azure Language service provides several Natural Language Processing (NLP) features to understand and analyze text.
 - Speech : Speech service includes various capabilities like speech to text, text to speech, speech translation, and many more.
 - Vision : The Computer Vision service provides you with access to advanced cognitive algorithms for processing images and returning information.
-- Azure OpenAI Service : Powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.
+- Azure OpenAI Service : Powerful language models including the GPT-3, GPT-4, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.
 
 To access these APIs, create a `cognitive service` resource in your subscription. This will instantiate a resource with an associated `API Key` necessary to authenticate the API call owner and apply rate and quota limits as per selected pricing tier.
 
@@ -780,7 +780,7 @@ Next, add a new action by searching for `Http`, then fill in the different param
 
 ![Logic App HTTP Action](assets/logic-app-http-action.png)
 
-Notice the region of your cognitive service account and the language to use are specified in the API Url. All parameters can be found in the default [sample](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text?tabs=macos%2Cterminal&pivots=programming-language-rest&ocid=AID3051475&WT.mc_id=javascript-76678-cxa#recognize-speech-from-a-file)
+Notice the region of your cognitive service account and the language to use are specified in the API Url. All parameters can be found in the default [sample][default-cognitive-sample]
 
 To validate the flow, go to your storage account and delete the audio file from the `audios` container and upload it once again (to trigger the updated logic app).
 In the Logic App `Run History`, you should see the transcript of the audio file as a text output from the HTTP call to Speech to Text API.
@@ -824,12 +824,16 @@ Now you can add the last step of the Logic App flow that will store the transcri
 
 </div>
 
+[default-cognitive-sample]: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text?tabs=macos%2Cterminal&pivots=programming-language-rest&ocid=AID3051475&WT.mc_id=javascript-76678-cxa#recognize-speech-from-a-file
 [cosmos-db]: https://learn.microsoft.com/en-us/azure/cosmos-db/scripts/cli/nosql/serverless
 [logic-app-action-parse-json]: https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-perform-data-operations?tabs=consumption#parse-json-action
 [logic-app-cosmos-db-action]: https://learn.microsoft.com/en-us/azure/connectors/connectors-create-api-cosmos-db?tabs=consumption
 
 <details>
 <summary>Toggle solution</summary>
+
+<details>
+<summary>If not in [FastTrack]</summary>
 
 ```bash
 # Create the Cosmos DB account using serverless
@@ -852,6 +856,8 @@ az cosmosdb sql container create --account-name <cosmos-db-account-name> \
                                  --name audios_transcripts \
                                  --partition-key-path "/id"
 ```
+
+</details>
 
 In the last run of your Logic App look at the output body of your HTTP action, and you should see something like this:
 
@@ -958,6 +964,9 @@ For the storage account associated to it: `stfunc<environment><region><applicati
 
 The solutions in different languages are provided below, if necessary the source code with the solutions can be found in this Github Repository, under `./src/solutions/<Preferred_Language>`.
 
+<details>
+<summary>If not in [FastTrack]</summary>
+
 #### Preparation
 
 You must create a storage account dedicated to your Azure Function in order to not mix the audios files and the Azure Function specificities.
@@ -971,9 +980,14 @@ az storage account create --name <function-storage-account-name> \
                           --sku Standard_LRS
 ```
 
+</details>
+
 #### .NET 7 implementation
 
 In this version of the implementation, you will be using the [.NET 7 Isolated](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-in-process-differences) runtime.
+
+<details>
+<summary>If not in [FastTrack]</summary>
 
 First, you will need to create a Function App with the dotnet runtime:
 
@@ -988,6 +1002,8 @@ az functionapp create --name <function-name> \
                       --resource-group <resource-group> \
                       --functions-version 4
 ```
+
+</details>
 
 Next, you will create a function using the [Azure Function Core Tools][azure-function-core-tools]:
 
