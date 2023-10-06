@@ -24,12 +24,12 @@ Welcome to this Azure Serverless Workshop. You'll be experimenting with Azure Se
 
 During this workshop you will have the instructions to complete each steps. It is recommended to search for the answers in provided resources and links before looking at the solutions placed under the 'Toggle solution' panel.
 
-<div class="warning" data-title="[FT] FastTrack : 2 hours version" 
+<div class="warning" data-title="[FastTrack] FastTrack : 2 hours version" 
 
 While we firmly believe that Trial and Error is an essential part of any practical learning experience, it is probable that you might only have a couple hours in front of you to go through this lab.
 
 You will find a **FastTrack** version of this product hands-on lab (about 2 hours) to play while getting a grasp on most of the Azure Serverless essential concepts detailed in this lab.
-The **FastTrack** required steps will be prefixed with a `[FT]` label : These are mandatory for the lab to go forward. 
+The **FastTrack** required steps will be prefixed with a `[FastTrack]` label : These are mandatory for the lab to go forward. 
 
 We encourage you to come back and go through the entire lab explanations later to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning and application deployment. 
 
@@ -376,7 +376,7 @@ Event Grid is an event broker that you can use to integrate applications while s
 
 The main Event Grid concept we'll use for the rest of this lab is called `System Topic`. A system topic in Event Grid represents one or more events published by Azure services such as Azure Storage and Azure Event Hubs. It basically plays the role of a pub-sub topic centralizing all the events of the associated Azure resource, and send them to all the subscribers based on their defined `event filters`.
 
-### [FT] Create the Event Grid System Topic
+### [FastTrack] Create the Event Grid System Topic
 
 You can create Event Grid System Topics :
 
@@ -505,7 +505,7 @@ az logic workflow create --resource-group <resource-group> \
 
 </details>
 
-### [FT] Trigger the Logic app
+### [FastTrack] Trigger the Logic app
 
 Next step is to actually trigger the Logic App based on the event raised by Event Grid when a file is uploaded to the audios' container.
 
@@ -595,7 +595,7 @@ It is also possible to rename the different operations of your Logic App to make
 
 [az-portal]: https://portal.azure.com
 
-### [FT] Retrieve file content
+### [FastTrack] Retrieve file content
 
 Now you have a blob upload event triggering the Logic App, you will be able to work with extended `metadata` shared in the event message.
 
@@ -674,7 +674,7 @@ Your Logic App should look like this:
 
 </details>
 
-### [FT] Consume Speech to Text APIs
+### [FastTrack] Consume Speech to Text APIs
 
 The Azure Cognitive Services are cloud-based AI services that give the ability to developers to quickly build intelligent apps thanks to these pre-trained models. They are available through client library SDKs in popular development languages and REST APIs.
 
@@ -730,7 +730,8 @@ The naming conventions are:
 <details>
 <summary>Toggle solution</summary>
 
-<!-- TODO: Check if possible to automatize that part or rephrase/extract for quicker lab format (2 hours) -->
+<details>
+<summary>If not in [FastTrack]</summary>
 
 ```bash
 # Let's create the speech to text service account as free tier
@@ -748,6 +749,8 @@ az keyvault create --location <region> \
 To allow the Logic App to access the Key Vault, you need to grant access to it. Go to your Logic App and inside the identity tab, turn on the `System Identity`:
 
 ![System Identity](assets/logic-app-system-identity.png)
+
+</details>
 
 Then in your Key Vault, go to `Access policies` and create a new one, set the Secret access to `Get` and `List`:
 
@@ -784,7 +787,7 @@ In the Logic App `Run History`, you should see the transcript of the audio file 
 
 </details>
 
-### [FT] Store data to Cosmos DB
+### [FastTrack] Store data to Cosmos DB
 
 Azure Cosmos DB is a fully managed NoSQL database which offers Geo-redundancy and multi-region write capabilities. It currently supports NoSQL, MongoDB, Cassandra, Gremlin, Table and PostgreSQL APIs and offers a serverless option which is perfect for our use case.
 
@@ -910,7 +913,7 @@ In the same `Function App` you will be able to add multiple `functions`, each wi
 
 Azure Functions run and benefit from the App Service platform, offering features like: deployment slots, continuous deployment, HTTPS support, hybrid connections and others. Apart from the `Consumption` (Serverless) model we're most interested in this Lab, Azure Functions can also be deployed a dedicated `App Service Plan`or in a hybrid model called `Premium Plan`.
 
-### [FT] Azure Functions : Let's practice
+### [FastTrack] Azure Functions : Let's practice
 
 At this stage in our scenario, the serverless transcription engine is ready and the first lab is almost complete. The last thing you need to add is an API to upload the audio file with a unique `GUID` name to your storage account.
 
@@ -1248,7 +1251,7 @@ The connector inside the Azure Logic App doesn't provide this possibility direct
 
 </details>
 
-### [FT] Connect the Web App
+### [FastTrack] Connect the Web App
 
 It's now time to connect the Azure Function which stand for a small API to upload your audio file and the Static Web App which is the front end of your application. The API Management (APIM) will be added in a future lab.
 
