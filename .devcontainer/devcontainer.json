@@ -35,9 +35,11 @@
         "ms-vscode.vscode-node-azure-pack", 
         // Azurite : Storage Account Emulator for local Azure Function Debug
         "azurite.azurite",
-        //Language related extensions
+        // Language related extensions
         "ms-dotnettools.csharp", 
-        "ms-python.python"        
+        "ms-python.python",
+        // Mardown doc : 
+        "davidanson.vscode-markdownlint"
       ]
     }
   },
