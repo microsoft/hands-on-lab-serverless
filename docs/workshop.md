@@ -852,7 +852,7 @@ The naming conventions are:
 <summary>📚 Toggle solution</summary>
 
 <details>
-<summary>If not in 🚀</summary>
+<summary>[🧑‍💻 Manual Setup]</summary>
 
 <!-- TODO: System Identity Logic Apps access to Azure Key Vault -->
 
@@ -954,7 +954,7 @@ Now you can add the last step of the Logic App flow that will store the transcri
 <summary>📚 Toggle solution</summary>
 
 <details>
-<summary>If not in 🚀</summary>
+<summary>[🧑‍💻 Manual Setup]</summary>
 
 ```bash
 # Create the Cosmos DB account using serverless
