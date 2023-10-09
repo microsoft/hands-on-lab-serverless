@@ -18,7 +18,7 @@ tags: azure, azure functions, logic apps, event grid, key vault, cosmos db, emai
 navigation_levels: 3
 ---
 
-# 🚀 Product Hands-on Lab - Azure Serverless Architecture
+# Product Hands-on Lab - Azure Serverless Architecture
 
 Welcome to this Azure Serverless Workshop. You'll be experimenting with Azure Serverless services in multiple labs to achieve a real world scenario. Don't worry, even if the challenges will increase in difficulty, this is a step by step lab, you will be guided through the whole process.
 
