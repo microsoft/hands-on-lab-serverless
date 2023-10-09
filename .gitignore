@@ -1,1 +1,7 @@
 *.zip
+
+# Local Dev Tools : Azurite
+__blobstorage__*
+__queuestorage__*
+__azurite_*
+*.bkp

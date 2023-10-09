@@ -1,7 +1,36 @@
 {
-    "folders": [
-        {
-            "path": ".."
-        }
-    ]
+	"folders": [
+		{
+			"path": "..",
+		},
+		{
+			"path": "../src/webapp",
+			"name": "Lab 0 - Azure Static Web App "
+		},
+		{
+			"path": "../src/solutions/dotnet",
+			"name": "Lab 1 - Dotnet - Az Function (Solution)"
+		},
+		{
+			"path": "../src/solutions/nodejs",
+			"name": "Lab 1 - NodeJs - Az Function (Solution)"
+		},
+		{
+			"path": "../src/solutions/python",
+			"name": "Lab 1 - Python - Az Function (Solution)"
+		},
+		{
+			"path": "../docs",
+			"name": "Documentation"
+		}
+	],
+	"settings": {
+		"debug.internalConsoleOptions": "neverOpen",
+		"azurite.location": "/tmp",
+		"ltex.checkFrequency": "save",
+		"ltex.additionalRules.motherTongue": "en-US",
+		"ltex.dictionary": {
+			"en-US":[":../docs/ltex.dictionary.en-US.txt"]
+		}
+	}
 }
