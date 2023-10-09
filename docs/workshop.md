@@ -34,12 +34,12 @@ The **FastTrack** required steps will be prefixed with a `🚀` label : These ar
 > The FastTrack route will set up most of the infrastructures and connections between resources to help you focus on the application's content and configuration. 
 > We also provide instructions for a deep dive session where you'll prefer to configure everything manually via the command line or the Azure Portal. 
 > 
-> Most of the time, the deep dive path will not cross the FastTrack path, but if this happens, they will be hidden under a [🧑‍💻 Manual Setup] detail panel to avoid confusion with the FastTrack preset up route.
-> These [🧑‍💻 Manual Setup] details can be **ignored** when you run the FastTrack path.
+> Most of the time, the deep dive path will not cross the FastTrack path, but if this happens, they will be hidden under a `🧑‍💻 Manual Setup` detail panel to avoid confusion with the FastTrack preset up route.
+> These `🧑‍💻 Manual Setup` details can be **ignored** when you run the FastTrack path.
 >
-> If you go the 🚀 path, we encourage you to come back and go through the entire lab explanations later on to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning, application configuration and deployment.
+> If you go the `🚀` path, we encourage you to come back and go through the entire lab explanations later on to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning, application configuration and deployment.
 > 
-> In a deep dive session, **all of the instructions** being tagged with `🧑‍💻 Manual Setup`, 🚀 (or no tag at all) will be necessary to help you to complete the lab.
+> In a deep dive session, **all of the instructions** whether they are tagged with `🧑‍💻 Manual Setup`, `🚀` or no tag at all, will be necessary to guide you through the entire lab.
 
 </div>
 
