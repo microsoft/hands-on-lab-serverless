@@ -18,7 +18,7 @@ tags: azure, azure functions, logic apps, event grid, key vault, cosmos db, emai
 navigation_levels: 3
 ---
 
-# Product Hands-on Lab - Azure Serverless Architecture
+# 🚀 Product Hands-on Lab - Azure Serverless Architecture
 
 Welcome to this Azure Serverless Workshop. You'll be experimenting with Azure Serverless services in multiple labs to achieve a real world scenario. Don't worry, even if the challenges will increase in difficulty, this is a step by step lab, you will be guided through the whole process.
 
@@ -53,7 +53,7 @@ The **FastTrack** required steps will be prefixed with a `🚀` label : These ar
 
 </div>
 
-## Prerequisites
+## 🚀 Prerequisites
 
 Before starting this lab, be sure to set your Azure environment :
 
@@ -82,7 +82,7 @@ To retrieve the lab content :
 ### 🥇 : Pre-configured GitHub Codespace
 
 To use a Github Codespace, you will need :
-- [A GitHub Account][Github-account]
+- [A GitHub Account][github-account]
 
 Github Codespace offers the ability to run a complete dev environment (Visual Studio Code, Extensions, Tools, Secure port forwarding etc.) on a dedicated virtual machine. 
 The configuration for the environment is defined in the `.devcontainer` folder, making sure everyone gets to develop and practice on identical environments : No more conflict on dependencies or missing tools ! 
@@ -103,8 +103,8 @@ To get your codespace ready for the labs, here are a few steps to execute :
 This repo comes with a Devcontainer configuration that will let you open a fully configured dev environment from your local Visual Studio Code, while still being completely isolated from the rest of your local machine configuration : No more dependancy conflict.
 Here are the required tools to do so : 
 
-- [Git client][Git-client] 
-- [Docker Desktop][Docker-desktop] running
+- [Git client][git-client] 
+- [Docker Desktop][docker-desktop] running
 - [Visual Studio Code][vs-code] installed
 
 Start by cloning the Hands-on-lab-Serverless repo you just forked on your local Machine and open the local folder in Visual Studio Code.
@@ -120,7 +120,7 @@ If you are not prompted by Visual Studio Code, you can open the command palette 
 
 The following tools and access will be necessary to run the lab in good conditions on a local environment :  
 
-- [Git client][Git-client] 
+- [Git client][git-client] 
 - [Visual Studio Code][vs-code] installed (you will use Dev Containers)
 - [Azure CLI][az-cli-install] installed on your machine
 - [Azure Functions Core Tools][az-func-core-tools] installed, this will be useful for creating the scaffold of your Azure Functions using command line.
@@ -131,10 +131,6 @@ The following tools and access will be necessary to run the lab in good conditio
   - [Node 18][download-node]
 
 Once you have set up your local environment, you can clone the Hands-on-lab-serverless repo you just forked on your machine, and open the local folder in Visual Studio Code and head to the next step. 
-
-[download-dotnet]: https://dotnet.microsoft.com/en-us/download/dotnet/7.0
-[download-python]: https://www.python.org/downloads/
-[download-node]: https://nodejs.org/en
 
 ### 👉 All : Load the Workspace
 
@@ -200,15 +196,6 @@ az provider register --namespace 'Microsoft.Web'
 ```
 
 </details>
-
-[az-cli-install]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
-[Docker-desktop]: https://www.docker.com/products/docker-desktop/
-[vs-code]: https://code.visualstudio.com/
-[Repo-fork]: https://github.com/microsoft/hands-on-lab-serverless/fork
-[Git-client]: https://git-scm.com/downloads
-[Github-account]: https://github.com/join
-[azure-vs-code-extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-[az-portal]: https://portal.azure.com/signin/index/
 
 ## Scenario
 
@@ -291,6 +278,13 @@ With everything ready let's start the lab 🚀
 [az-portal]: https://portal.azure.com
 [vs-code]: https://code.visualstudio.com/
 [azure-function-vs-code-extension]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
+[docker-desktop]: https://www.docker.com/products/docker-desktop/
+[Repo-fork]: https://github.com/microsoft/hands-on-lab-serverless/fork
+[git-client]: https://git-scm.com/downloads
+[github-account]: https://github.com/join
+[download-dotnet]: https://dotnet.microsoft.com/en-us/download/dotnet/7.0
+[download-python]: https://www.python.org/downloads/
+[download-node]: https://nodejs.org/en
 
 ---
 
@@ -317,8 +311,6 @@ Remember, the naming convention for a resource groups will be: `rg-<environment>
 
 </div>
 
-[resource-group]: https://learn.microsoft.com/fr-fr/cli/azure/group?view=azure-cli-latest
-
 <details>
 <summary>📚 Toggle solution</summary>
 
@@ -342,7 +334,7 @@ You have created a Static Web App to help assess progress on this Hands-on-Lab a
 
 Deploying the Web App is optional but it is highly recommended as it will simplify the testing process so that you can focus on the fun stuff.
 
-You can deploy the [demo Web App](https://github.com/microsoft/hands-on-lab-serverless/tree/main/src/webapp) using either Github Actions (recommended) or [Azure Static Web Apps CLI](https://aka.ms/swa/cli-local-development).
+You can deploy the [demo Web App][github-demo-web-app] using either Github Actions (recommended) or [Azure Static Web Apps CLI][swa-cli].
 
 Remember to define a naming convention, for a static web app it will be this format: `stapp-<environment>-<region>-<application-name>-<owner>-<instance>`
 
@@ -350,7 +342,7 @@ Remember to define a naming convention, for a static web app it will be this for
 
 You can rely on Github Actions to build and deploy the code of the Web app into a Static Web App in Azure.
 
-To do this, you need to [fork the project](https://github.com/microsoft/hands-on-lab-serverless/fork) on Github and then run the following command:
+To do this, you need to [fork the project][github-hol-fork] on Github and then run the following command:
 
 ```sh
 # Replace the following settings with your own:
@@ -375,9 +367,9 @@ This command will create the Static Web App in Azure and will then prompt you fo
 
 ### Using Azure Static Web Apps CLI
 
-You can also opt for building and deploying the web app from your machine without having to fork the project and give permissions to [AzureAppServiceCLI](https://learn.microsoft.com/en-us/azure/static-web-apps/get-started-cli?tabs=react) to access the code.
+You can also opt for building and deploying the web app from your machine without having to fork the project and give permissions to [AzureAppServiceCLI][app-service-cli] to access the code.
 
-First let's [download](https://github.com/microsoft/hands-on-lab-serverless/releases/download/latest/webapp.zip) or clone the [project](https://github.com/microsoft/hands-on-lab-serverless) locally and go inside the `src/webapp` folder.
+First let's [download][webapp-zip] or clone the [project][github-hol] locally and go inside the `src/webapp` folder.
 
 Now, you can follow these steps to create the static web app:
 
@@ -412,6 +404,14 @@ npm run swa:deploy -- \
 Et voila, now you should have a running demo Web App 🚀
 It is pretty much a blank canvas at this stage, but you will soon be able to add new features to it as you progress with the lab.
 
+[resource-group]: https://learn.microsoft.com/fr-fr/cli/azure/group?view=azure-cli-latest
+[github-demo-web-app]: https://github.com/microsoft/hands-on-lab-serverless/tree/main/src/webapp
+[swa-cli]: https://aka.ms/swa/cli-local-development
+[github-hol-fork]: https://github.com/microsoft/hands-on-lab-serverless/fork
+[app-service-cli]: https://learn.microsoft.com/en-us/azure/static-web-apps/get-started-cli?tabs=react
+[github-hol]: https://github.com/microsoft/hands-on-lab-serverless
+[webapp-zip]: https://github.com/microsoft/hands-on-lab-serverless/releases/download/latest/webapp.zip
+
 ---
 
 # 🚀 Lab 1 : Transcribe an audio file (3 hours)
@@ -440,9 +440,6 @@ With the resource group ready, let's create a storage account with a container n
 > [Storage Account Container][storage-account-container]
 
 </div>
-
-[storage-account]: https://learn.microsoft.com/fr-fr/cli/azure/storage/account?view=azure-cli-latest
-[storage-account-container]: https://learn.microsoft.com/fr-fr/cli/azure/storage/container?view=azure-cli-latest
 
 <details>
 <summary>📚 Toggle solution</summary>
@@ -474,8 +471,6 @@ To check everything was created as expected, open the [Azure Portal][az-portal] 
 
 </details>
 
-[az-portal]: https://portal.azure.com
-
 ## Detect a file upload event (25 min)
 
 ### Events services
@@ -495,14 +490,16 @@ Serverless is all about designing the application around event-driven architectu
 
 Event Grid is an event broker that you can use to integrate applications while subscribing to event sources. These events are delivered through Event Grid to subscribers such as applications, Azure services, or any accessible endpoint. Azure services, First and Third-party SaaS services as well as custom applications can be the source of these events.
 
-The main Event Grid concept we'll use for the rest of this lab is called `System Topic`. A system topic in Event Grid represents one or more events published by Azure services such as Azure Storage and Azure Event Hubs. It basically plays the role of a pub-sub topic centralizing all the events of the associated Azure resource, and send them to all the subscribers based on their defined `event filters`.
-
 ### 🚀 Create the Event Grid System Topic
 
-You can create Event Grid System Topics :
+The main Event Grid concept we'll use for the rest of this lab is called `System Topic`. A system topic in Event Grid represents one or more events published by Azure services such as Azure Storage and Azure Event Hubs. It basically plays the role of a pub-sub topic centralizing all the events of the associated Azure resource, and send them to all `subscribers` based on their defined `event filters` defined in specific `Event subscriptions`.
 
-- Directly from the resource you want to monitor using the `Events` menu. A system topic will be created automatically with a unique name and will be linked to the resource.
-- Manually, using the `System Topics` resource type in the Azure Portal, or thanks to the Azure CLI. This will allow you to define the name of the system topic and the resource it will be linked to.
+You will now have to link the audios' storage you just created (named like `st<environment><region><application-name><owner><instance>`) with an Event Grid **System Topic**. 
+
+Here are the main options to create Event Grid System Topics:
+
+1. Directly from the resource you want to monitor using the `Events` menu. A system topic will be created automatically with a unique name and will be linked to the resource. You will have to create an `Event Subscription` via this method.
+1. Manually, using the `Event Grid System Topics` resource type in the Azure Portal, or thanks to the Azure CLI. This will allow you to define the name of the system topic and the resource it will be linked to. `Event Subscription` **not required** at the creation of the resource with this method.
 
 For this step, creating the Event Grid System Topic will be enough, as the actual `event subscription` and `event filters` will be defined and automatically created by the Logic App trigger setup [later on](workshop/serverless-overview/?step=1#trigger-the-logic-app).
 
@@ -513,6 +510,7 @@ For this step, creating the Event Grid System Topic will be enough, as the actua
 > - Topic type : `Microsoft.Storage.StorageAccounts`
 > - Source : The name of the storage account created in the previous steps
 > - Location : Must be the same location as the storage account
+> - Do not create any `event subscription` yet.
 
 </div>
 
@@ -524,13 +522,9 @@ The naming convention for an Event Grid System Topic is: `egst-audio-storage-<en
 >
 > [Choose between Azure Messaging Services][azure-messaging-services]<br> 
 > [Event Grid System Topic][event-grid-system-topic]<br> 
-> [Event Grid Topic Subscription][event-grid-topic-subscription]
+> [Event Grid Topic Subscription][event-grid-topic-subscription] 
 
 </div>
-
-[event-grid-system-topic]: https://learn.microsoft.com/en-us/azure/event-grid/system-topics
-[event-grid-topic-subscription]: https://learn.microsoft.com/en-us/cli/azure/eventgrid/system-topic/event-subscription?view=azure-cli-latest
-[azure-messaging-services]: https://learn.microsoft.com/en-us/azure/service-bus-messaging/compare-messaging-services
 
 <details>
 
@@ -605,9 +599,6 @@ The naming convention for Logic Apps is: `logic-<environment>-<region>-<applicat
 
 </div>
 
-[azure-cli-extension]: https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview
-[azure-logic-app]: https://learn.microsoft.com/en-us/cli/azure/logic/workflow?view=azure-cli-latest
-
 <details>
 <summary>📚 Toggle solution</summary>
 
@@ -628,18 +619,18 @@ az logic workflow create --resource-group <resource-group> \
 
 ### 🚀 Trigger the Logic app
 
-Next step is to actually trigger the Logic App based on the event raised by Event Grid when a file is uploaded to the audios' container.
+Next step is to actually trigger the Logic App you just created (`logic-<environment>-<region>-<application-name>-<owner>-<instance>`) based on the event raised by your Event Grid System Topic when a file is uploaded to the audios' container.
 
-Logic Apps offers different components which can be used to define the `steps` of a flow as a chain of `actions` and `controls`. Here are the main ones :
+Azure Logic Apps offers different components which can be used to define the `steps` of a flow as a chain of `actions` and `controls`. Here are the main ones :
 
 - Operations : `Triggers` and `Actions` are the main building blocks of a Logic App. A `trigger` is the event that starts the workflow and an `action` is a step in this workflow.
 - Controls : Switch, Loop, Condition, Scope are used to control the flow of the steps composing the actual logic of the workflow.
 - Connectors : Standard and Enterprise connectors are used to connect to different first of third party services and applications. These connectors abstract the complexities of interacting with these services by defining their required and optional inputs as well as deserializing their outputs to `dynamic objects` usable in the rest of the flow steps.
 
-Here's an example of a basic usecase:
+Here's an example of a basic use case:
 ![logic-apps-twitter-example](assets/logic-app-twitter-example.png)
 
-And this how this flow might look like in Logic Apps :
+And this how this flow would look like in Logic Apps :
 ![logic-apps-twitter-implementation-example](assets/logic-app-twitter-implementation-example.png)
 
 Back to our Logic App, let's start with our first step :
@@ -687,9 +678,6 @@ If you have set everything as expected, you should see the following entry in th
 
 </div>
 
-[logic-apps-event-grid-trigger]: https://learn.microsoft.com/en-us/connectors/azureeventgrid/#when-a-resource-event-occurs
-[event-grid-subject-filtering]: https://learn.microsoft.com/en-us/azure/event-grid/event-filtering#subject-filtering
-
 <details>
 <summary>📚 Toggle solution</summary>
 
@@ -714,7 +702,6 @@ It is also possible to rename the different operations of your Logic App to make
 
 </details>
 
-[az-portal]: https://portal.azure.com
 
 ### 🚀 Retrieve file content
 
@@ -753,10 +740,6 @@ Based on below resources and the previous definition step, you should be able to
 > [Logic App Storage Account Action][logic-app-storage-action]
 
 </div>
-
-[logic-app-parse-json]: https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-perform-data-operations?tabs=consumption#parse-json-action
-[logic-app-storage-action]: https://learn.microsoft.com/en-us/azure/connectors/connectors-create-api-azureblobstorage?tabs=consumption
-[event-grid-common-schema]: https://learn.microsoft.com/en-us/azure/event-grid/event-schema#event-schema
 
 <details>
 <summary>📚 Toggle solution</summary>
@@ -817,7 +800,7 @@ You now want to retrieve the transcript out of the audio file uploaded thanks to
 
 > To do this, you will have to:
 >
-> - Instantiate the cognitive service as a `Free` tier
+> - `🧑‍💻 Manual Setup` : Instantiate the cognitive service as a `Free` tier
 > - Retrieve your auto-generated `Api Key`
 > - Call the speech to text API
 
@@ -837,24 +820,17 @@ The naming conventions are:
 <div class="tip" data-title="Tips">
 
 > [What are Cognitive Services][cognitive-services]<br> 
-> [Cognitive service Apis][cognitive-services-apis]<br> 
+> [Cognitive service Az CLI][cognitive-services-cli]<br> 
 > [Cognitive Service Getting Started][cognitive-service-api]<br> 
 > [Create a Key Vault][key-vault]
 
 </div>
-
-[cognitive-services]: https://learn.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services
-[cognitive-services-apis]: https://learn.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest
-[key-vault]: https://learn.microsoft.com/fr-fr/cli/azure/keyvault?view=azure-cli-latest
-[cognitive-service-api]: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=macos%2Cterminal&pivots=programming-language-rest
 
 <details>
 <summary>📚 Toggle solution</summary>
 
 <details>
 <summary>🧑‍💻 Manual Setup</summary>
-
-<!-- TODO: System Identity Logic Apps access to Azure Key Vault -->
 
 ```bash
 # Let's create the speech to text service account as free tier
@@ -889,7 +865,7 @@ If you can't add the secrets, this means that you need to give to the account yo
 
 </details>
 
-With all of these ready, add a new action in your **logic app workflow** by searching for `Key Vault` and then select `Get Secret`. This will load the speech to text API key once.
+With all the pre-requisites set (Key Vault **created**, secret Cognitive Service api key **set**, Logic App Managed Identity access to key vault **enabled**), add a new action in your **logic app workflow** by searching for `Key Vault` and then select `Get Secret`. This will load the speech to text API key once.
 
 ![Logic App Key Vault Connection](assets/logic-app-key-vault-connection.png)
 
@@ -897,7 +873,7 @@ Select the Key Vault resource and the name of the secret.
 
 ![Logic App Get Secret](assets/logic-app-get-secret.png)
 
-Next, add a new action by searching for `Http`, then fill in the different parameters as follows:
+Next, add a new action by searching for `Http`, then fill in the different parameters as follows after retrieving the cognitive service endtpoint from the **resource overview**:
 
 ![Logic App HTTP Action](assets/logic-app-http-action.png)
 
@@ -915,7 +891,11 @@ In the Logic App `Run History`, you should see the transcript of the audio file 
 Azure Cosmos DB is a fully managed NoSQL database which offers Geo-redundancy and multi-region write capabilities. It currently supports NoSQL, MongoDB, Cassandra, Gremlin, Table and PostgreSQL APIs and offers a serverless option which is perfect for our use case.
 
 Now the cognitive service provided with a transcript of your audio file, you will have to store it in a NoSQL database inside Cosmos DB.
+The naming convention for Cosmos DB account is `cosmos-<environment>-<region>-<application-name>-<owner>-<instance>`
 
+
+<details>
+<summary>🧑‍💻 Manual Setup</summary>
 <div class="task" data-title="Tasks">
 
 > - Create a Cosmos DB account and select the `NoSQL` API
@@ -924,7 +904,7 @@ Now the cognitive service provided with a transcript of your audio file, you wil
 > - Add a new collection to store the transcripts : `audios_transcripts`
 </div>
 
-The naming convention for Cosmos DB account is `cosmos-<environment>-<region>-<application-name>-<owner>-<instance>`
+</details>
 
 Now you can add the last step of the Logic App flow that will store the transcript in the Cosmos DB database using the `Create or update document V3` operation. Once again, the action will help you set the connection to the cosmos DB collection and ease the insert/update operations by providing a JSON schema.
 
@@ -944,11 +924,6 @@ Now you can add the last step of the Logic App flow that will store the transcri
 > [Logic App Cosmos DB action][logic-app-cosmos-db-action]
 
 </div>
-
-[default-cognitive-sample]: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text?tabs=macos%2Cterminal&pivots=programming-language-rest&ocid=AID3051475&WT.mc_id=javascript-76678-cxa#recognize-speech-from-a-file
-[cosmos-db]: https://learn.microsoft.com/en-us/azure/cosmos-db/scripts/cli/nosql/serverless
-[logic-app-action-parse-json]: https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-perform-data-operations?tabs=consumption#parse-json-action
-[logic-app-cosmos-db-action]: https://learn.microsoft.com/en-us/azure/connectors/connectors-create-api-cosmos-db?tabs=consumption
 
 <details>
 <summary>📚 Toggle solution</summary>
@@ -1144,74 +1119,6 @@ Finally, make sure to set `FILE_UPLOADING_FORMAT` to `binary` in the Static Web 
 </details>
 
 <details>
-<summary>.NET 7</summary>
-
-#### .NET 7 implementation
-
-In this version of the implementation, you will be using the [.NET 7 Isolated](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-in-process-differences) runtime.
-
-Now that you have a skeleton for our `AudioUpload` function in the `AudioUpload.cs` file, you will need to update it to meet the following goals:
-- It should read the uploaded file from the body of the POST request
-- It should store the file as a blob inside the blob Storage Account
-- It should respond to user with a status code 200
-
-To upload the file, you will rely on the blob output binding [`BlobOutput`](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-output?tabs=python-v2%2Cin-process&pivots=programming-language-csharp) of the Azure Function, which will take care of the logic of connecting to the Storage Account and uploading the function with minimal line of code in our side.
-
-To do this, let's start by adding a `AudioUploadOutput` class to the `AudioUpload.cs` file for simplicity but it can be done in a specific class.
-
-```csharp
-public class AudioUploadOutput
-{
-    [BlobOutput("%STORAGE_ACCOUNT_CONTAINER%/{rand-guid}.wav", Connection="STORAGE_ACCOUNT_CONNECTION_STRING")]
-    public byte[] Blob { get; set; }
-
-    public HttpResponseData HttpResponse { get; set; }
-}
-```
-
-This class will handle uploading the blob and returning the HTTP response:
-- The blob will be stored in the container identified by `STORAGE_ACCOUNT_CONTAINER` which is an environment variable.
-- The blob will be named `{rand-guid}.wav` which resolves to a UUID followed by `.wav`.
-- `STORAGE_ACCOUNT_CONNECTION_STRING` is the name of App setting which contains the connection string that you will use to connect to the blob storage account
-
-Next, you will need to update the class `AudioUpload` to add the logic for reading the file from the request, and then use `AudioUploadOutput` to perform the blob upload and returning the response.
-
-Update the code of the `Run` method in the `AudioUpload` class as follows:
-
-```csharp
-[Function(nameof(AudioUpload))]
-public AudioUploadOutput Run(
-    [HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req
-)
-{
-    _logger.LogInformation("C# HTTP trigger function processed a request.");
-
-    // Read the file contents from the request
-    // and store it in the `audioFileData` buffer
-    var audioFileData = default(byte[]);
-    using (var memstream = new MemoryStream())
-    {
-        req.Body.CopyTo(memstream);
-        audioFileData = memstream.ToArray();
-    }
-
-    // Prepare the response to return to the user
-    var response = req.CreateResponse(HttpStatusCode.OK);
-    response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
-    response.WriteString("Uploaded!");
-
-    // Use AudioUploadOutput to return the response and store the blob
-    return new AudioUploadOutput()
-    {
-        Blob = audioFileData,
-        HttpResponse = response
-    };
-}
-```
-
-</details>
-
-<details>
 <summary> 🐍 Python</summary>
 
 #### Python implementation
@@ -1336,19 +1243,88 @@ def main(req: func.HttpRequest, outputblob: func.Out[bytes]) -> func.HttpRespons
 The function will accept POST requests with a file in the body, upload the file to a blob storage, and then return a `200` response to indicate that the request was processed successfully.
 
 </details>
+<details open>
+<summary> 🚀 .NET 7</summary>
+
+#### .NET 7 implementation
+
+In this version of the implementation, you will be using the [.NET 7 Isolated](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-in-process-differences) runtime.
+
+Now that you have a skeleton for our `AudioUpload` function in the `AudioUpload.cs` file, you will need to update it to meet the following goals:
+
+- It should read the uploaded file from the body of the POST request
+- It should store the file as a blob inside the blob Storage Account
+- It should respond to user with a status code 200
+
+To upload the file, you will rely on the blob output binding [`BlobOutput`](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-output?tabs=python-v2%2Cin-process&pivots=programming-language-csharp) of the Azure Function, which will take care of the logic of connecting to the Storage Account and uploading the function with minimal line of code in our side.
+
+To do this, let's start by adding a `AudioUploadOutput` class to the `AudioUpload.cs` file for simplicity but it can be done in a specific class.
+
+```csharp
+public class AudioUploadOutput
+{
+    [BlobOutput("%STORAGE_ACCOUNT_CONTAINER%/{rand-guid}.wav", Connection="STORAGE_ACCOUNT_CONNECTION_STRING")]
+    public byte[] Blob { get; set; }
+
+    public HttpResponseData HttpResponse { get; set; }
+}
+```
+
+This class will handle uploading the blob and returning the HTTP response:
+
+- The blob will be stored in the container identified by `STORAGE_ACCOUNT_CONTAINER` which is an environment variable.
+- The blob will be named `{rand-guid}.wav` which resolves to a UUID followed by `.wav`.
+- `STORAGE_ACCOUNT_CONNECTION_STRING` is the name of App setting which contains the connection string that you will use to connect to the blob storage account
+
+Next, you will need to update the class `AudioUpload` to add the logic for reading the file from the request, and then use `AudioUploadOutput` to perform the blob upload and returning the response.
+
+Update the code of the `Run` method in the `AudioUpload` class as follows:
+
+```csharp
+[Function(nameof(AudioUpload))]
+public AudioUploadOutput Run(
+    [HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req
+)
+{
+    _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+    // Read the file contents from the request
+    // and store it in the `audioFileData` buffer
+    var audioFileData = default(byte[]);
+    using (var memstream = new MemoryStream())
+    {
+        req.Body.CopyTo(memstream);
+        audioFileData = memstream.ToArray();
+    }
+
+    // Prepare the response to return to the user
+    var response = req.CreateResponse(HttpStatusCode.OK);
+    response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+    response.WriteString("Uploaded!");
+
+    // Use AudioUploadOutput to return the response and store the blob
+    return new AudioUploadOutput()
+    {
+        Blob = audioFileData,
+        HttpResponse = response
+    };
+}
+```
+
+</details>
 
 #### Deployment and testing
 
-##### Deploy your function with VS Code
+##### Option 1 : Deploy your function with VS Code
 
 - Open the Azure extension in VS Code left panel
 - Make sure you're signed in to your Azure account
 - Open the Function App panel
-- Right click on your function app and select `Deploy to Function App...`
+- Right-click on your function app and select `Deploy to Function App...`
 
 ![Deploy to Function App](assets/function-app-deploy.png)
 
-##### Deploy your function with the Azure Function Core Tools
+##### Option 2 : Deploy your function with the Azure Function Core Tools
 
 Deploy your function using the VS Code extension or by command line:
 
@@ -1365,9 +1341,9 @@ Use this url into your Postman to upload the audio file:
 
 ![Postman](assets/func-postman.png)
 
-#### Events
+#### Events Grid Subscription : Fine-grained subject filter
 
-If you look at your Logic App history, you will see that when you upload a file using the Azure Function it will trigger the Logic Apps multiple times instead of one. If you open an event received by the Logic App you will have something like:
+If you look at your Logic App **Run History**, you will see that when you upload a file using the Azure Function endpoint it will trigger the Logic Apps multiple times instead of one. If you open an event received by the Logic App you will have something like the following object:
 
 ```json
 [
@@ -1387,9 +1363,11 @@ If you look at your Logic App history, you will see that when you upload a file 
 ]
 ```
 
-The event type: `Microsoft.Storage.BlobCreated` is correct but the value from the `data.api` property will change from `PutBlob` and `PutBlockList`. You are only interrested by the `PutBlob` one. So you need to add a filter to it.
+The event type: `Microsoft.Storage.BlobCreated` is correct but the value from the `data.api` property will change from `PutBlob` and `PutBlockList`. You are only interested in the `PutBlob` one. So you need to add a filter to it.
 
-The connector inside the Azure Logic App doesn't provide this possibility directly so you need to do it directly on the Event Grid System Topic inside the associated subscription you previously did:
+The connector inside the Azure Logic App doesn't provide this possibility directly, so you need to do it from the Event Grid System Topic and open the **Filters** tab inside the `Event Subscription` you previously created via the Logic App Trigger.
+
+Select **Add new filter** and fill in as follows :
 
 ![Subscription Filtering](assets/event-grid-system-topic-subscription-filtering.png)
 
@@ -1397,28 +1375,23 @@ The connector inside the Azure Logic App doesn't provide this possibility direct
 
 ### 🚀 Connect the Web App
 
-It's now time to connect the Azure Function which stand for a small API to upload your audio file and the Static Web App which is the front end of your application. The API Management (APIM) will be added in a future lab.
+It's now time to connect the Azure Function App which stand for a small API to upload your audio file and the Static Web App which is the front end of your application. The API Management (APIM) will be added in a future lab.
 
 <div class="task" data-title="Task">
 
-> Check the README of the web app project to explore the environment variables supported by the Web App you deployed on Lab 0 and set the value of `FILE_UPLOADING_URL` to the url of the upload function which you have created in the previous lab.
-
-</div>
-
-<div class="tip" data-title="Tips">
-
-> If your function expects a binary in the POST request body (instead of a multipart form) then you will also need to set `FILE_UPLOADING_FORMAT` to `binary`.
+> - Check the README of the web app project to explore the environment variables supported by the Web App you deployed on Lab 0 and set the value of `FILE_UPLOADING_URL` to the url of the uploaded function which you have created in the previous lab.
+> - If you followed the solutions provided above to create your **AudioUpload** Function endpoint: Set `FILE_UPLOADING_FORMAT` to `binary`, as it will force the frontend to treat the Azure Function endpoint as a binary receiver, rather than a multi-part form receiver.
 
 </div>
 
 <details>
 <summary>📚 Toggle solution</summary>
 
-First, go to the Azure Static Web App and inside `Configuration` in the `Application Settings` set the environment variable `FILE_UPLOADING_URL` to the same Url you used inside Postman previously.
+First, go to the Azure Static Web App resource and inside `Configuration` in the `Application Settings` set the environment variable `FILE_UPLOADING_URL` to the same Azure Function `AudioUpload` endpoint you retrieved earlier in the lab above.
 
 If your function expects a binary as an input then you will also need to set `FILE_UPLOADING_FORMAT` to `binary`
 
-Now if you try to upload a file using the Web App interface you should see a green box on the bottom left corner with a success message.
+Now if you try to upload a file using the Web App interface you should see a green box in the bottom left corner with a success message.
 
 ![Web App](assets/static-web-app-upload-succeeded.png)
 
@@ -1434,8 +1407,6 @@ By now you should have a solution that :
 
 The Azure Function API created in the Lab offers a first security layer to the solution as it requires a key to be called, as well as makes sure all the files are stores with a uniquely generated name (GUID).
 
-The entire architecture is `serverless` : Azure compute resources will only be consumed when a new audio file is uploaded via the Azure Function API. You can leave the resources for a few days to see that _no compute resources are billed_ when no audio file is uploaded.
-
 [az-portal]: https://portal.azure.com
 [azure-function]: https://learn.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest
 [azure-function-core-tools]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash
@@ -1443,18 +1414,38 @@ The entire architecture is `serverless` : Azure compute resources will only be c
 [azure-function-http]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?pivots=programming-language-python&tabs=python-v2%2Cin-process%2Cfunctionsv2
 [azure-function-blob-output]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-output?pivots=programming-language-python&tabs=python-v2%2Cin-process
 [azure-function-bindings-expression]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-expressions-patterns
+[logic-apps-event-grid-trigger]: https://learn.microsoft.com/en-us/connectors/azureeventgrid/#when-a-resource-event-occurs
+[event-grid-subject-filtering]: https://learn.microsoft.com/en-us/azure/event-grid/event-filtering#subject-filtering
+[storage-account]: https://learn.microsoft.com/fr-fr/cli/azure/storage/account?view=azure-cli-latest
+[storage-account-container]: https://learn.microsoft.com/fr-fr/cli/azure/storage/container?view=azure-cli-latest
+[event-grid-system-topic]: https://learn.microsoft.com/en-us/azure/event-grid/system-topics
+[event-grid-topic-subscription]: https://learn.microsoft.com/en-us/cli/azure/eventgrid/system-topic/event-subscription?view=azure-cli-latest
+[azure-messaging-services]: https://learn.microsoft.com/en-us/azure/service-bus-messaging/compare-messaging-services
+[azure-cli-extension]: https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview
+[azure-logic-app]: https://learn.microsoft.com/en-us/cli/azure/logic/workflow?view=azure-cli-latest
+[logic-app-parse-json]: https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-perform-data-operations?tabs=consumption#parse-json-action
+[logic-app-storage-action]: https://learn.microsoft.com/en-us/azure/connectors/connectors-create-api-azureblobstorage?tabs=consumption
+[event-grid-common-schema]: https://learn.microsoft.com/en-us/azure/event-grid/event-schema#event-schema
+[cognitive-services]: https://learn.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services
+[cognitive-services-cli]: https://learn.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest
+[key-vault]: https://learn.microsoft.com/fr-fr/cli/azure/keyvault?view=azure-cli-latest
+[cognitive-service-api]: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/rest-speech-to-text-short#regions-and-endpoints
+[default-cognitive-sample]: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text?tabs=macos%2Cterminal&pivots=programming-language-rest&ocid=AID3051475&WT.mc_id=javascript-76678-cxa#recognize-speech-from-a-file
+[cosmos-db]: https://learn.microsoft.com/en-us/azure/cosmos-db/scripts/cli/nosql/serverless
+[logic-app-action-parse-json]: https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-perform-data-operations?tabs=consumption#parse-json-action
+[logic-app-cosmos-db-action]: https://learn.microsoft.com/en-us/azure/connectors/connectors-create-api-cosmos-db?tabs=consumption
 
 ---
 
 # Lab 2 : Retrieve transcriptions (1 hour)
 
-On this second lab, you will focus on getting back the transcriptions of audio files and displaying them on the demo Web App.
+On this second lab, you will focus on getting back the transcriptions of audio files and displaying them on the demo Web App. The front end of the web app is a Single-Page application with static files hosted in an Azure **Static Web App**. The front end will interact with other backend Http Endpoints services and the CosmosDb instance mainly via built-in Azure Function as a **Managed serverless** backend for the Web App.   
 
 Previously processed transcriptions will be retrieved using HTTP GET requests whereas new transcriptions will be retrieved in real-time using websockets.
 
 ![Achitecture scope of Lab 2](assets/architecture-lab2.svg)
 
-## Getting transcriptions on-demand (10 min)
+## 🚀 Getting transcriptions on-demand (10 min)
 
 First, let's create a function which returns the latest 50 transcriptions from Cosmos DB.
 
@@ -1480,6 +1471,7 @@ This function will be used to show all existing transcriptions on the demo Web A
 > - Trigger: `HTTP request`
 > - Action: Return the latest `50 transcriptions`, in `JSON` format
 > - Transcriptions should include the following props: `id`, `path`, `result`, `status`, and `_ts`
+> - Define the `TRANSCRIPTION_FETCHING_URL` to the Url of the `GetTranscription` Function endpoint
 
 </div>
 
@@ -1581,8 +1573,8 @@ Don't forget to add an empty `__init__.py` for Python discovery mecanism.
 
 </details>
 
-<details>
-<summary>.NET 7</summary>
+<details open>
+<summary> 🚀 .NET 7 </summary>
 
 #### .NET 7 implementation
 
@@ -1652,19 +1644,19 @@ public HttpResponseData Run(
 }
 ```
 
-Notice the usage of the Cosmos DB input binding [`CosmosDBInput`](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-input?tabs=python-v2%2Cisolated-process%2Cextensionv4&pivots=programming-language-csharp) which simplifies retrieving data from a Cosmos DB collection.
+Notice the usage of the Cosmos DB input binding [`CosmosDBInput`][cosmosdb-input] which simplifies retrieving data from a Cosmos DB collection.
 
 In addition to defining the environment variables such as the name of the database, collection, and the connection string, you have also defined a query (`SqlQuery`) to fetch the last 50 items from the collection.
 
-Check the [Query items guide](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-dotnet-query-items) for more details about the query language.
+Check the [Query items guide][dotnet-query-items] for more details about the query language.
 
 </details>
 
+Once you could confirm you are getting the expected response by calling the HTTP endpoint of the function, you can go ahead and update the configuration of the demo Web App with the function's endpoint.
+
+You can do that by setting the value of the **Static Web App** environment variable `TRANSCRIPTION_FETCHING_URL` to the url of the `GetTranscriptions` function inside the `Configuration` section exactly like the Lab 1.
+
 </details>
-
-Once you make sure you are getting the expected response by calling the HTTP endpoint of the function, you can go ahead and update the configuration of the demo Web App with the function's endpoint.
-
-You can do that by setting the value of the environment variable `TRANSCRIPTION_FETCHING_URL` to the url of the `GetTranscriptions` function inside the `Configuration` section exactly like the Lab 1.
 
 If everything is working correctly, you will be able to see the list of transcriptions like this:
 
@@ -1672,14 +1664,14 @@ If everything is working correctly, you will be able to see the list of transcri
 
 ## Getting transcriptions in real-time (50 min)
 
-The next step is to listen to new transcriptions and show them on the demo Web App as they get generated.
+The next step is to listen to new transcriptions and show them in real-time on the demo Web App as they get generated.
 
-To achieve this, you will be relying on [Azure Web PubSub](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview) for sending and receiving notifications as transcriptions get added to Cosmos DB.
+To achieve this, you will be relying on [Azure Web PubSub][azure-web-pub-sub] for sending and receiving notifications as transcriptions get added to Cosmos DB.
 
 The flow will be the following:
 
 - A new function `CosmosToWebPubSub` will be triggered whenever a new transcription is added to Cosmos DB.
-- The function will create a new notification in an [Azure Web PubSub hub](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/key-concepts). The contents of the notification will be the new transcription.
+- The function will create a new notification in an [Azure Web PubSub hub][azure-web-pubsub-hub]. New transcription will fill in the content of the notification.
 - The demo Web App will be listening to new messages on the same Web PubSub hub and will show new transcriptions on real-time.
 
 ### Using Azure Web PubSub for real-time communication
@@ -1718,13 +1710,13 @@ az webpubsub create \
 
 </details>
 
-### Publishing new transcriptions using Web PubSub
+### 🚀 Publishing new transcriptions using Web PubSub
 
-The next step is to use the newly created Web PubSub instance to publish new transcriptions as they get added to Cosmos DB.
+The next step is to use the newly created Web PubSub instance (`wps<environment><region><application-name><owner><instance>`) to publish new transcriptions as they get added to Cosmos DB.
 
 <div class="task" data-title="Task">
 
-> Create an Cosmos DB-triggered function which publishes new records to your Web PubSub instance:
+> Create a Cosmos DB-triggered function which publishes new records to your Web PubSub instance:
 >
 > - Name: `CosmosToWebPubSub`
 > - Trigger: `Cosmos DB`
@@ -1748,73 +1740,15 @@ The next step is to use the newly created Web PubSub instance to publish new tra
 
 Add a new Cosmos DB-triggered function `CosmosToWebPubSub` to your Function App and use the following settings:
 
-| App setting                         | Description                     | 
-|-------------------------------------|---------------------------------|
-| WEB_PUBSUB_HUB_ID                   | Web PubSub hub name     |  
-| WEB_PUBSUB_CONNECTION_STRING        | Web PubSub hub connection string    |                      
+| App setting                         | Description                       |
+|-------------------------------------|-----------------------------------|
+| WEB_PUBSUB_HUB_ID                   | Web PubSub hub name               |  
+| WEB_PUBSUB_CONNECTION_STRING        | Web PubSub hub connection string  |
 
 You need to update the App settings of the Function App by adding the 2 new settings:
 
-- Set `WEB_PUBSUB_HUB_ID` with the name of the Web PubSub
+- Set `WEB_PUBSUB_HUB_ID` with the name of the Web PubSub resource
 - Set `WEB_PUBSUB_CONNECTION_STRING` with one of the connection string in the `Keys` section of your Web PubSub resource on Azure.
-
-</details>
-
-<details>
-<summary>.NET 7</summary>
-
-#### .NET 7 implementation
-
-Let's create a Cosmos DB triggered function using the template `CosmosDBTrigger` and use the `WebPubSub` extension to send notifications to the `Web PubSub` hub using the `WebPubSubOutput` output binding.
-
-```sh
-# Create a skeleton of a Cosmos DB triggered function
-func new --name CosmosToWebPubSub --template "CosmosDBTrigger"
-
-# Use the latest version of the Web PubSub Nuget package (prerelease) to interact with Web PubSub
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.WebPubSub --version 1.5.0-beta.1
-```
-
-This should create a `CosmosToWebPubSub.cs` file with a function that will trigger whenever you add a new item to a Cosmos DB collection.
-
-Next, you will need to update the `Run` method with the following contents:
-
-```csharp
-[Function(nameof(CosmosToWebPubSub))]
-[WebPubSubOutput(Hub = "%WEB_PUBSUB_HUB_ID%", Connection = "WEB_PUBSUB_CONNECTION_STRING")]
-public SendToAllAction? Run(
-    [CosmosDBTrigger(
-        databaseName: "%COSMOS_DB_DATABASE_NAME%",
-        collectionName: "%COSMOS_DB_CONTAINER_ID%",
-        ConnectionStringSetting = "COSMOS_DB_CONNECTION_STRING_SETTING",
-        LeaseCollectionName = "leases")
-    ] IReadOnlyList<Transcription> input
-)
-{
-    if (input != null && input.Count > 0)
-    {
-        _logger.LogInformation("Document Id: " + input[0].id);
-
-        return new SendToAllAction
-        {
-            Data = BinaryData.FromString(JsonSerializer.Serialize(input[0])),
-            DataType = WebPubSubDataType.Json
-        };
-    }
-
-    return null;
-}
-```
-
-As the notification data will be sent in the JSON format, you will need to add the following dependency at the top of the file:
-
-```csharp
-using System.Text.Json;
-```
-
-Notice the use of the 2 bindings to simplify the interaction with other services:
-- `CosmosDBTrigger`: this trigger will detect automatically new items added to the collection and run the function whenever that happens
-- `WebPubSubOutput`: this output binding will send a notification to the hub defined in its constructor. To send a notification to everyone in the hub, you need to return a `SendToAllAction` instance.
 
 </details>
 
@@ -1868,15 +1802,75 @@ def main(transcriptions: func.DocumentList, actions: func.Out[str]) -> None:
         }))
 ```
 
-Don't forget to add an empty `__init__.py` for Python discovery mecanism.
+Don't forget to add an empty `__init__.py` for Python discovery mechanism.
 
 As you have probably already noticed the `connectionStringSetting`, `databaseName` and `collectionName` are populated with the same key as the previous Function. And because you deploy all your Functions in the same Azure Function from an infrastructure point of view, they are already shared accross the `Application settings`.
 
 </details>
 
+<details open>
+<summary>🚀 .NET 7</summary>
+
+#### .NET 7 implementation
+
+Let's create a Cosmos DB triggered function using the template `CosmosDBTrigger` and use the `WebPubSub` extension to send notifications to the `Web PubSub` hub using the `WebPubSubOutput` output binding.
+
+```sh
+# Create a skeleton of a Cosmos DB triggered function
+func new --name CosmosToWebPubSub --template "CosmosDBTrigger"
+
+# Use the latest version of the Web PubSub Nuget package (prerelease) to interact with Web PubSub
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.WebPubSub --version 1.5.0-beta.1
+```
+
+This should create a `CosmosToWebPubSub.cs` file with a function that will trigger whenever you add a new item to a Cosmos DB collection.
+
+Next, you will need to update the `Run` method with the following contents:
+
+```csharp
+[Function(nameof(CosmosToWebPubSub))]
+[WebPubSubOutput(Hub = "%WEB_PUBSUB_HUB_ID%", Connection = "WEB_PUBSUB_CONNECTION_STRING")]
+public SendToAllAction? Run(
+    [CosmosDBTrigger(
+        databaseName: "%COSMOS_DB_DATABASE_NAME%",
+        collectionName: "%COSMOS_DB_CONTAINER_ID%",
+        ConnectionStringSetting = "COSMOS_DB_CONNECTION_STRING_SETTING",
+        CreateLeaseCollectionIfNotExists = true,
+        LeaseCollectionName = "leases")
+    ] IReadOnlyList<Transcription> input
+)
+{
+    if (input != null && input.Count > 0)
+    {
+        _logger.LogInformation("Document Id: " + input[0].id);
+
+        return new SendToAllAction
+        {
+            Data = BinaryData.FromString(JsonSerializer.Serialize(input[0])),
+            DataType = WebPubSubDataType.Json
+        };
+    }
+
+    return null;
+}
+```
+
+As the notification data will be sent in the JSON format, you will need to add the following dependency at the top of the file:
+
+```csharp
+using System.Text.Json;
+```
+
+Notice the use of the 2 bindings to simplify the interaction with other services:
+
+- `CosmosDBTrigger`: this trigger will detect automatically new items added to the collection and run the function whenever that happens
+- `WebPubSubOutput`: this output binding will send a notification to the hub defined in its constructor. To send a notification to everyone in the hub, you need to return a `SendToAllAction` instance.
+
 </details>
 
-### Consuming new transcriptions from Web PubSub
+</details>
+
+### 🚀 Consuming new transcriptions from Web PubSub
 
 The last step is to consume the newly published transcriptions in the demo Web App from the Web PubSub hub.
 
@@ -1898,7 +1892,7 @@ The last step is to consume the newly published transcriptions in the demo Web A
 <details>
 <summary>📚 Toggle solution</summary>
 
-You can retreive a connection string for the Web PubSub directly with the Azure Portal or using this command line:
+You can retrieve a connection string for the Web PubSub directly with the Azure Portal or using this command line:
 
 ```sh
 az webpubsub key show \
@@ -1910,14 +1904,6 @@ az webpubsub key show \
 
 </details>
 
-[cosmosdb-input-binding]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-input?tabs=python-v1%2Cin-process%2Cfunctionsv2&pivots=programming-language-python
-[offset-limit-clause-in-cosmosdb]: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/query/offset-limit
-[cosmosdb-connection-string]: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-dotnet-get-started?tabs=azure-cli%2Cwindows#retrieve-your-account-connection-string
-[azure-web-pubsub]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview
-[create-web-pubsub-instance]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/howto-develop-create-instance?tabs=CLI&pivots=method-azure-portal
-[web-pubsub-output-binding]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/reference-functions-bindings?tabs=csharp#output-binding
-[publish-and-consume-from-web-pubsub]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/tutorial-pub-sub-messages
-
 ## Lab 2 : Summary
 
 By now you should have a solution that :
@@ -1925,6 +1911,20 @@ By now you should have a solution that :
 - Uploads audio files to a Storage Account
 - Transcribes the uploaded audio file and displays it in a web interface in real-time
 - Retrieves the latest 50 transcriptions using a RESTful API
+
+The entire architecture is **Serverless** : Azure compute resources will only be billed when a new audio file is uploaded via the Azure Function API (after a large number of activations). You can leave the resources for a few days to see that _no compute resources are billed_ when no audio file is uploaded.
+
+[cosmosdb-input-binding]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-input?tabs=python-v1%2Cin-process%2Cfunctionsv2&pivots=programming-language-python
+[offset-limit-clause-in-cosmosdb]: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/query/offset-limit
+[cosmosdb-connection-string]: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-dotnet-get-started?tabs=azure-cli%2Cwindows#retrieve-your-account-connection-string
+[azure-web-pubsub]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview
+[create-web-pubsub-instance]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/howto-develop-create-instance?tabs=CLI&pivots=method-azure-portal
+[web-pubsub-output-binding]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/reference-functions-bindings?tabs=csharp#output-binding
+[publish-and-consume-from-web-pubsub]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/tutorial-pub-sub-messages
+[cosmosdb-input]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-input?tabs=python-v2%2Cisolated-process%2Cextensionv4&pivots=programming-language-csharp
+[dotnet-query-items]: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-dotnet-query-items
+[azure-web-pub-sub]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview
+[azure-web-pubsub-hub]: https://learn.microsoft.com/en-us/azure/azure-web-pubsub/key-concepts
 
 ---
 

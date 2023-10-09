@@ -22,6 +22,7 @@ namespace serverless_workshop_functions_dotnet
                 databaseName: "%COSMOS_DB_DATABASE_NAME%",
                 collectionName: "%COSMOS_DB_CONTAINER_ID%",
                 ConnectionStringSetting = "COSMOS_DB_CONNECTION_STRING_SETTING",
+                CreateLeaseCollectionIfNotExists = true,
                 LeaseCollectionName = "leases")
             ] IReadOnlyList<Transcription> input
         )
