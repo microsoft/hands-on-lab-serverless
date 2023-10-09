@@ -20,13 +20,13 @@
 			"name": "Lab 1 - Python - Az Function (Solution)"
 		},
 		{
-			"path": "../src/docs",
+			"path": "../docs",
 			"name": "Documentation"
 		}
 	],
 	"settings": {
 		"debug.internalConsoleOptions": "neverOpen",
-		"azurite.location": "tmp",
+		"azurite.location": "/tmp",
 		"ltex.checkFrequency": "save",
 		"ltex.additionalRules.motherTongue": "en-US",
 		"ltex.dictionary": {

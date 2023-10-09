@@ -29,15 +29,15 @@ During this workshop you will have the instructions to complete each steps. It i
 > While we strongly believe that **Trial and Error** is an essential part of a practical learning experience, it is probable that you might only have a couple hours in front of you to go through this lab.
 > 
 > You will find a **FastTrack** version of this product hands-on lab (about 2 hours) to play while getting a grasp on most of the Azure Serverless essential concepts detailed in this lab.
-The **FastTrack** required steps will be prefixed with a `🚀` label : These are mandatory for the lab to go forward. 
+The **FastTrack** required steps will be prefixed with a `🚀` label : These are **mandatory** for the lab to go forward. 
 >
-> The 🚀 route will set up most of the infrastructures and connections between resources to help you focus on the application's content and configuration. 
+> The FastTrack route will set up most of the infrastructures and connections between resources to help you focus on the application's content and configuration. 
 > We also provide instructions for a deep dive session where you'll prefer to configure everything manually via the command line or the Azure Portal. 
 > 
-> Most of the time, the deep dive path will not cross the 🚀 path, but if this happens, they will be hidden under a [🧑‍💻 Manual Setup] detail panel to avoid confusion with the 🚀 route.
-> These [🧑‍💻 Manual Setup] details can be ignored when you browse the 🚀 path.
+> Most of the time, the deep dive path will not cross the FastTrack path, but if this happens, they will be hidden under a [🧑‍💻 Manual Setup] detail panel to avoid confusion with the FastTrack preset up route.
+> These [🧑‍💻 Manual Setup] details can be **ignored** when you run the FastTrack path.
 >
-> If you go the 🚀 path, we encourage you to come back and go through the entire lab explanations later to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning, application configuration and deployment.
+> If you go the 🚀 path, we encourage you to come back and go through the entire lab explanations later on to get a deeper understanding of all the concepts described below, from Azure resource choice, to provisioning, application configuration and deployment.
 > 
 > In a deep dive session, **all of the instructions** being tagged with `🧑‍💻 Manual Setup`, 🚀 (or no tag at all) will be necessary to help you to complete the lab.
 
@@ -882,7 +882,11 @@ Notice the region of your cognitive service account and the language to use are 
 To validate the flow, go to your storage account and delete the audio file from the `audios` container and upload it once again (to trigger the updated logic app).
 In the Logic App `Run History`, you should see the transcript of the audio file as a text output from the HTTP call to Speech to Text API.
 
-<!-- TODO: Add a screenshot -->
+![Logic App Run History](assets/logic-app-run-history.png)
+
+Select your run and open the `Http` action block to verify the `Outputs` section : 
+
+![Logic App Run History Details](assets/logic-app-run-result.png)
 
 </details>
 
