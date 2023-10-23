@@ -197,6 +197,28 @@ az provider register --namespace 'Microsoft.Web'
 
 </details>
 
+### Deploy the infrastructure
+
+If you choose to do the FastTrack version, you must deploy the infrastructure before starting the lab. 
+
+First, you need to initialize the terraform infrastructure by running the following command:
+
+```bash
+cd terraform && terraform init
+```
+
+Then run the following command to deploy the infrastructure:
+
+```bash
+# Plan the deployment
+terraform plan -out plan.out
+
+# Apply the deployment
+terraform apply plan.out
+```
+
+The deployment should take around 5 minutes to complete.
+
 ## Scenario
 
 The goal of the full lab is to upload an audio file to Azure and retrieve the transcripts back using a Web Application.
@@ -1941,5 +1963,4 @@ To do so, click on `delete resource group` in the Azure Portal to delete all the
 ```bash
 # Delete the resource group with all the resources
 az group delete --name <resource-group>
-
 ```
