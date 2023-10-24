@@ -1766,15 +1766,15 @@ The next step is to use the newly created Web PubSub instance (`wps<environment>
 
 Add a new Cosmos DB-triggered function `CosmosToWebPubSub` to your Function App and use the following settings:
 
-| App setting                         | Description                       |
-|-------------------------------------|-----------------------------------|
-| WEB_PUBSUB_HUB_ID                   | Web PubSub hub name               |  
-| WEB_PUBSUB_CONNECTION_STRING        | Web PubSub hub connection string  |
+| App setting                         | Description                           |
+|-------------------------------------|---------------------------------------|
+| WEB_PUBSUB_HUB_ID                   | Web PubSub resource name              |  
+| WEB_PUBSUB_CONNECTION_STRING        | Web PubSub primary connection string  |
 
 You need to update the App settings of the Function App by adding the 2 new settings:
 
 - Set `WEB_PUBSUB_HUB_ID` with the name of the Web PubSub resource
-- Set `WEB_PUBSUB_CONNECTION_STRING` with one of the connection string in the `Keys` section of your Web PubSub resource on Azure.
+- Set `WEB_PUBSUB_CONNECTION_STRING` with the primary connection string in the `Keys` section of your Web PubSub resource on Azure.
 
 </details>
 
@@ -1904,7 +1904,7 @@ The last step is to consume the newly published transcriptions in the demo Web A
 
 > Set environment variables in your Static Web App for:
 > - The connection string of the Web PubSub with `WPS_CONNECTION_STRING`
-> - The Web PubSub name with `WPS_HUB_NAME`
+> - The Web PubSub resource name with `WPS_HUB_NAME`
 > - Ensure that new transcriptions are displayed in the Web App as you upload new audio files.
 
 </div>
