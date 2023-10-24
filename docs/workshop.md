@@ -391,7 +391,7 @@ This command will create the Static Web App in Azure and will then prompt you fo
 
 You can also opt for building and deploying the web app from your machine without having to fork the project and give permissions to [AzureAppServiceCLI][app-service-cli] to access the code.
 
-First let's [download][webapp-zip] or clone the [project][github-hol] locally and go inside the `src/webapp` folder.
+First let's go inside the `src/webapp` folder.
 
 Now, you can follow these steps to create the static web app:
 
@@ -1413,7 +1413,7 @@ It's now time to connect the Azure Function App which stand for a small API to u
 <details>
 <summary>📚 Toggle solution</summary>
 
-First, go to the Azure Static Web App resource and inside `Configuration` in the `Application Settings` set the environment variable `FILE_UPLOADING_URL` to the same Azure Function `AudioUpload` endpoint you retrieved earlier in the lab above.
+First, go to the Azure Static Web App resource and inside `Configuration` in the `Application Settings` set the environment variable `FILE_UPLOADING_URL` to the same Azure Function `AudioUpload` endpoint you retrieved earlier in the lab above like `https://<functionapp>.azurewebsites.net/api/audioupload?code=<...>`.
 
 If your function expects a binary as an input then you will also need to set `FILE_UPLOADING_FORMAT` to `binary`
 

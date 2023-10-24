@@ -91,7 +91,9 @@ out
 bin
 obj
 appsettings.json
-local.settings.json
+
+# Azure Functions localsettings file
+!local.settings.json
 
 # Azurite artifacts
 __blobstorage__

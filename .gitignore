@@ -6,6 +6,9 @@ __queuestorage__*
 __azurite_*
 *.bkp
 
+# Local Dotnet Dev Tools
+*.sln
+
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
