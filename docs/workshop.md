@@ -53,7 +53,7 @@ The **FastTrack** required steps will be prefixed with a `🚀` label : These ar
 
 </div>
 
-## 🚀 Prerequisites
+## 🚀 Dev Environment Setup
 
 Before starting this lab, be sure to set your Azure environment :
 
@@ -132,7 +132,9 @@ The following tools and access will be necessary to run the lab in good conditio
 
 Once you have set up your local environment, you can clone the Hands-on-lab-serverless repo you just forked on your machine, and open the local folder in Visual Studio Code and head to the next step. 
 
-### 👉 All : Load the Workspace
+## 🚀 Visual Studio Code Setup
+
+### 👉 Load the Workspace
 
 Once your environment is ready, you will have to enter the Visual Studio Workspace to get all the tools ready.
 To do so, click the **burger menu** in the top left corner (visible only with codespace), **File** and then **Open Workspace from File...** 
@@ -149,7 +151,7 @@ To do so, click the **burger menu** in the top left corner (visible only with co
 
 Let's begin!
 
-### 🔑 All : Sign in to Azure
+### 🔑 Sign in to Azure
 
 <div class="task" data-title="Task">
 
@@ -196,6 +198,44 @@ az provider register --namespace 'Microsoft.Web'
 ```
 
 </details>
+
+### Deploy the infrastructure
+
+If you choose to do the FastTrack version, you must deploy the infrastructure before starting the lab. 
+
+First, you need to initialize the terraform infrastructure by running the following command:
+
+```bash
+cd terraform && terraform init
+```
+
+Then run the following command to deploy the infrastructure:
+
+```bash
+# Apply the deployment directly
+terraform apply -auto-approve
+```
+
+Now you can deploy the web app code into the Static Web App:
+
+```bash
+# Restore packages 
+cd ../src/webapp && npm install
+
+# Build the Web App
+npm run swa:build
+
+# Deploy the web app code into the Static Web App
+RESOURCE_GROUP_NAME="$(terraform output -raw resource_group_name)"
+STATIC_WEB_APP="$(terraform output -raw static_web_app_name)"
+
+npm run swa:deploy -- \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --app-name $STATIC_WEB_APP \
+  --no-use-keychain
+```
+
+The deployment should take around 5 minutes to complete.
 
 ## Scenario
 
@@ -369,7 +409,7 @@ This command will create the Static Web App in Azure and will then prompt you fo
 
 You can also opt for building and deploying the web app from your machine without having to fork the project and give permissions to [AzureAppServiceCLI][app-service-cli] to access the code.
 
-First let's [download][webapp-zip] or clone the [project][github-hol] locally and go inside the `src/webapp` folder.
+First let's go inside the `src/webapp` folder.
 
 Now, you can follow these steps to create the static web app:
 
@@ -1391,7 +1431,7 @@ It's now time to connect the Azure Function App which stand for a small API to u
 <details>
 <summary>📚 Toggle solution</summary>
 
-First, go to the Azure Static Web App resource and inside `Configuration` in the `Application Settings` set the environment variable `FILE_UPLOADING_URL` to the same Azure Function `AudioUpload` endpoint you retrieved earlier in the lab above.
+First, go to the Azure Static Web App resource and inside `Configuration` in the `Application Settings` set the environment variable `FILE_UPLOADING_URL` to the same Azure Function `AudioUpload` endpoint you retrieved earlier in the lab above like `https://<functionapp>.azurewebsites.net/api/audioupload?code=<...>`.
 
 If your function expects a binary as an input then you will also need to set `FILE_UPLOADING_FORMAT` to `binary`
 
@@ -1744,15 +1784,15 @@ The next step is to use the newly created Web PubSub instance (`wps<environment>
 
 Add a new Cosmos DB-triggered function `CosmosToWebPubSub` to your Function App and use the following settings:
 
-| App setting                         | Description                       |
-|-------------------------------------|-----------------------------------|
-| WEB_PUBSUB_HUB_ID                   | Web PubSub hub name               |  
-| WEB_PUBSUB_CONNECTION_STRING        | Web PubSub hub connection string  |
+| App setting                         | Description                           |
+|-------------------------------------|---------------------------------------|
+| WEB_PUBSUB_HUB_ID                   | Web PubSub resource name              |  
+| WEB_PUBSUB_CONNECTION_STRING        | Web PubSub primary connection string  |
 
 You need to update the App settings of the Function App by adding the 2 new settings:
 
 - Set `WEB_PUBSUB_HUB_ID` with the name of the Web PubSub resource
-- Set `WEB_PUBSUB_CONNECTION_STRING` with one of the connection string in the `Keys` section of your Web PubSub resource on Azure.
+- Set `WEB_PUBSUB_CONNECTION_STRING` with the primary connection string in the `Keys` section of your Web PubSub resource on Azure.
 
 </details>
 
@@ -1882,7 +1922,7 @@ The last step is to consume the newly published transcriptions in the demo Web A
 
 > Set environment variables in your Static Web App for:
 > - The connection string of the Web PubSub with `WPS_CONNECTION_STRING`
-> - The Web PubSub name with `WPS_HUB_NAME`
+> - The Web PubSub resource name with `WPS_HUB_NAME`
 > - Ensure that new transcriptions are displayed in the Web App as you upload new audio files.
 
 </div>
@@ -1941,5 +1981,4 @@ To do so, click on `delete resource group` in the Azure Portal to delete all the
 ```bash
 # Delete the resource group with all the resources
 az group delete --name <resource-group>
-
 ```

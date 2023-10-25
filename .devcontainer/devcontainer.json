@@ -43,6 +43,7 @@
         "azurite.azurite",
         // Language related extensions
         "ms-dotnettools.csharp", 
+        "ms-dotnettools.csdevkit",
         "ms-python.python",
         // Mardown helpers : 
         "davidanson.vscode-markdownlint", 

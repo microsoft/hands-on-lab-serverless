@@ -13,6 +13,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+    
+    - name: Terraform
+      run:  cd terraform && zip -r ../terraform.zip .
 
     - name: .NET zip solutions
       run:  cd src/solutions/dotnet && zip -r ../../../dotnet-solution.zip .
