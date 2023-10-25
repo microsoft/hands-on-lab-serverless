@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - feat/add_terraform
 
 jobs:
   update_packages:

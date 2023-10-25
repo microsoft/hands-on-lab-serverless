@@ -53,7 +53,7 @@ The **FastTrack** required steps will be prefixed with a `🚀` label : These ar
 
 </div>
 
-## 🚀 Prerequisites
+## 🚀 Dev Environment Setup
 
 Before starting this lab, be sure to set your Azure environment :
 
@@ -132,7 +132,9 @@ The following tools and access will be necessary to run the lab in good conditio
 
 Once you have set up your local environment, you can clone the Hands-on-lab-serverless repo you just forked on your machine, and open the local folder in Visual Studio Code and head to the next step. 
 
-### 👉 All : Load the Workspace
+## 🚀 Visual Studio Code Setup
+
+### 👉 Load the Workspace
 
 Once your environment is ready, you will have to enter the Visual Studio Workspace to get all the tools ready.
 To do so, click the **burger menu** in the top left corner (visible only with codespace), **File** and then **Open Workspace from File...** 
@@ -149,7 +151,7 @@ To do so, click the **burger menu** in the top left corner (visible only with co
 
 Let's begin!
 
-### 🔑 All : Sign in to Azure
+### 🔑 Sign in to Azure
 
 <div class="task" data-title="Task">
 
@@ -212,6 +214,25 @@ Then run the following command to deploy the infrastructure:
 ```bash
 # Apply the deployment directly
 terraform apply -auto-approve
+```
+
+Now you can deploy the web app code into the Static Web App:
+
+```bash
+# Restore packages 
+cd ../src/webapp && npm install
+
+# Build the Web App
+npm run swa:build
+
+# Deploy the web app code into the Static Web App
+RESOURCE_GROUP_NAME="$(terraform output -raw resource_group_name)"
+STATIC_WEB_APP="$(terraform output -raw static_web_app_name)"
+
+npm run swa:deploy -- \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --app-name $STATIC_WEB_APP \
+  --no-use-keychain
 ```
 
 The deployment should take around 5 minutes to complete.
