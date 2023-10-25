@@ -210,11 +210,8 @@ cd terraform && terraform init
 Then run the following command to deploy the infrastructure:
 
 ```bash
-# Plan the deployment
-terraform plan -out plan.out
-
-# Apply the deployment
-terraform apply plan.out
+# Apply the deployment directly
+terraform apply -auto-approve
 ```
 
 The deployment should take around 5 minutes to complete.

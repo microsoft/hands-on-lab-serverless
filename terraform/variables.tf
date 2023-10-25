@@ -29,7 +29,7 @@ variable "owner" {
 variable "scm" {
   description = "The source code repository name"
   type        = string
-  default     = "azure-workshop-setup"
+  default     = "hands-on-lab-serverless"
 }
 
 variable "resource_group_name_suffix" {
