@@ -17,10 +17,13 @@ namespace loadtest
     public class CopyBlobToGuid
     {
         private readonly ILogger _logger;
+        private HttpResponseData _response;
+        private readonly string _storageAccountContainer;
 
         public CopyBlobToGuid(ILoggerFactory loggerFactory)
         {
             _logger = loggerFactory.CreateLogger<CopyBlobToGuid>();
+            _storageAccountContainer = Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_CONTAINER");
         }
 
         [Function("CopyBlobToGuid")]
@@ -29,20 +32,34 @@ namespace loadtest
             [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req,
             [BlobInput("%STORAGE_ACCOUNT_CONTAINER%/{sourceBlob}.wav", Connection="STORAGE_ACCOUNT_CONNECTION_STRING")] byte[] blobInput)
         {
+            var blobPath = $"{_storageAccountContainer}/{req.Query["sourceBlob"]}.wav";
+
             //Fail fast 
             if(blobInput == null || blobInput == default(byte[]))
-                _logger.LogCritical("[CRITICAL] Aborting copy : Couldn't properly load the blobInput");
-            
-            //Create the success Http Response
-            var response = req.CreateResponse(HttpStatusCode.OK);
-            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+            {
+                _logger.LogCritical($"[CRITICAL] Aborting copy : Couldn't properly load the sourceBlob at {blobPath}");
 
-            response.WriteString($"Successfully copied the blob in {Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_CONTAINER")}/{req.Query["sourceBlob"]}.wav");
+                _response = req.CreateResponse(HttpStatusCode.BadRequest);
+                _response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+                _response.WriteString($"Something went wrong with the sourceBlob to copy : Please check your settings and try again later.");
+
+                return new CopyBlobToGuidOutput()
+                {
+                    Blob = null,
+                    HttpResponse = _response
+                };
+            }
+                            
+            //Create the success Http Response
+            _response = req.CreateResponse(HttpStatusCode.OK);
+            _response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+            _response.WriteString($"Successfully copied the blob at {blobPath} to a new guid file");
 
             return new CopyBlobToGuidOutput()
             {
                 Blob = blobInput,
-                HttpResponse = response
+                HttpResponse = _response
             };
         }
     }
