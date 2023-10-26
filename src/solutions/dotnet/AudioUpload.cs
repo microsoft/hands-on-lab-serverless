@@ -42,7 +42,6 @@ namespace serverless_workshop_functions_dotnet
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
             response.WriteString("Uploaded!");
-
             return new AudioUploadOutput()
             {
                 Blob = audioFileData,

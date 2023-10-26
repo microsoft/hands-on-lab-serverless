@@ -20,6 +20,10 @@
 			"name": "Lab 1 - Python - Az Function (Solution)"
 		},
 		{
+			"path": "../src/loadtest/dotnet",
+			"name": "Bonus - Load Testing"
+		},
+		{
 			"path": "../docs",
 			"name": "Documentation"
 		}
