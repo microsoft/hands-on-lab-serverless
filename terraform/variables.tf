@@ -73,3 +73,9 @@ variable "user_id" {
   type        = string
   default     = ""
 }
+
+variable "lab_suffix" {
+  description = "A nullable suffix for a specific lab to be edited. Helps with keeping track of labs' cohorts in the same subscription"
+  type        = string
+  default     = ""
+}
