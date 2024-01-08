@@ -73,3 +73,9 @@ variable "user_id" {
   type        = string
   default     = ""
 }
+
+variable "cohort_suffix" {
+  description = "[Optional] A cohort suffix for a specific lab to be edited. Helps with keeping track of labs' cohorts in the same subscription"
+  type        = string
+  default     = ""
+}

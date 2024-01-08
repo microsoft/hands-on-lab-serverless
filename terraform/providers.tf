@@ -16,8 +16,8 @@ terraform {
     }
   }
 
-  backend "local" {}
-  # backend "azurerm" {}
+  # backend "local" {}
+  backend "azurerm" {}
 }
 
 provider "azurerm" {
