@@ -26,19 +26,17 @@
       "ghcr.io/devcontainers/features/python:1": {}
   },
 
-  //Ports Forward config : 
-  //7071 : Azure Function Debug Port
-  //1000[0,1,2] : Azurite storage emulator used with Azure Function
+  // Ports Forward config : 
+  // 7071 : Azure Function Debug Port
+  // 1000[0,1,2] : Azurite storage emulator used with Azure Function
   "forwardPorts": [7071, 10000, 10001, 10002],
 
   // Specific tools to be added to the devcontainer (as no devcontainer feature available)
-  "updateContentCommand": "bash .devcontainer/setup.sh",
+  "postCreateCommand": "bash .devcontainer/setup.sh",
 
   "customizations": {
     "vscode": {
       "extensions": [
-        // Azure Resources Ëxtension Pack
-        "ms-vscode.vscode-node-azure-pack", 
         // Azurite : Storage Account Emulator for local Azure Function Debug
         "azurite.azurite",
         // Language related extensions
@@ -49,8 +47,7 @@
         "davidanson.vscode-markdownlint", 
         "valentjn.vscode-ltex",
         // Terraform
-        "hashicorp.terraform"    
-
+        "hashicorp.terraform"
       ]
     }
   },
