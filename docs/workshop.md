@@ -5,6 +5,7 @@ title: Product Hands-on Lab - Azure Serverless Architecture
 short_title: Azure Serverless Architecture
 description: This workshop will cover multiple serverless services that you will use to build a complete real world scenario.
 level: beginner # Required. Can be 'beginner', 'intermediate' or 'advanced'
+navigation_numbering: false
 authors: # Required. You can add as many authors as needed
   - Damien Aicheh
   - Julien Strebler
